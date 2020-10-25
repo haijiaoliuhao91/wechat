@@ -16,6 +16,8 @@
 
 <!-- 环形进度条 -->
 <view class="gap">环形进度条</view>
+<circle-progress id="progress1" percent="{{percentValue}}"></circle-progress>
+<button bindtap="drawProgress">redraw</button>
 
 <!-- progress 右边进度的百分比数字，它的颜色怎么设置 -->
 <view class="gap">progress 右边进度的百分比数字，它的颜色怎么设置</view>

@@ -17,12 +17,12 @@ progress {
 
 @font-face {
   font-family: 'iconfont';  /* project id 2155928 */
-  src: url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.eot');
-  src: url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.woff') format('woff'),
-  url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_2155928_m4pruonbht.eot');
+  src: url('//at.alicdn.com/t/font_2155928_m4pruonbht.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2155928_m4pruonbht.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2155928_m4pruonbht.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2155928_m4pruonbht.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2155928_m4pruonbht.svg#iconfont') format('svg');
 }
 
 .iconfont {

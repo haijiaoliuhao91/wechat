@@ -30,5 +30,18 @@ Page({
         this.setData({percentValue: 100})
       }, 17);
     }
+  },
+
+  // 环形进度条
+  drawProgress() {
+    if (this.data.percentValue > 100) {
+      this.setData({
+        percentValue: 0
+      })
+    }
+
+    this.setData({
+      percentValue: this.data.percentValue + 10
+    })
   }
 })
