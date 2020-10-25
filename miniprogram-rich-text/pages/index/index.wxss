@@ -1,0 +1,17 @@
+.gap {
+  background-color: blue;
+  color: white;
+  margin: 10px 10px 0;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.div_class {
+  color: red;
+}
+
+.img {
+  font-size: 0;
+  display: block;
+}
