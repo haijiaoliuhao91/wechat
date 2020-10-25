@@ -1,0 +1,27 @@
+<progress percent="60" activeColor="red" backgroundColor="blue" stroke-width="60rpx" border-radius="30rpx" active="true" duration="500" active-mode="backwards" bindactiveend="activeend"></progress>
+<progress percent="30" stroke-width="30px" border-radius="15px" active="{{true}}" show-info="true" font-size="20px" activeColor="red" active-mode="forwards"  style="color:red;"></progress>
+
+<!-- 代码示例 -->
+<view class="gap">代码示例，单击模拟网络异步</view>
+<progress show-info bindtap="onTapProgressBar" stroke-width="2px" percent="{{percentValue}}" backgroundColor="#f2f2f2" active bindactiveend="activeend" active-mode="forwards" style="color:Red;"></progress>
+
+<!-- progress已经产生的进度条如何设置圆角 -->
+<view class="gap">progress已经产生的进度条如何设置圆角</view>
+<progress border-radius="5px" show-info="true" percent="30" stroke-width="10px"></progress>
+
+<!-- 已经加载完的进度条progress，怎么点击某个按钮让它重新加载呢 -->
+<view class="gap">已经加载完的进度条progress，怎么点击某个按钮让它重新加载呢</view>
+<progress stroke-width="10px" border-radius="5px" active="true" active-mode="forwards" percent="{{percentValue}}" bindtap="onTapProgressBar" bindactiveend="activeend" duration="300"></progress>
+<button bindtap="onTapReload">重新加载</button>
+
+<!-- 环形进度条 -->
+<view class="gap">环形进度条</view>
+
+<!-- progress 右边进度的百分比数字，它的颜色怎么设置 -->
+<view class="gap">progress 右边进度的百分比数字，它的颜色怎么设置</view>
+<progress percent="80" show-info stroke-width="10px" backgroundColor="blue" border-radius="5px" style="color:red;"></progress>
+
+<!-- 从iconfont.cn搜索两个图标，以自定义的方式 -->
+<icon class="iconfont icon-setting" />
+<icon class="iconfont icon-location" />
+<icon class="iconfont icon-sun" />

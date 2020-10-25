@@ -1,0 +1,48 @@
+progress {
+  margin: 30px;
+}
+
+.gap {
+  margin: 20px;
+}
+
+.wx-progress-inner-bar {
+  border-radius: 5px;
+}
+
+.wx-progress-info {
+  color: green;
+  margin-left: 5px;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 2155928 */
+  src: url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.eot');
+  src: url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2155928_cyxfqdzd4h.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont";
+  color: red;
+  font-size: 40px;
+}
+
+.icon-setting::after {
+  content: "\e61b";
+  color: blue;
+}
+
+.icon-location::before {
+  content: '\e61d';
+  color: green;
+}
+
+.icon-sun::before {
+  content: '\e63e';
+  color: yellow;
+  margin-left: 30px;
+}
