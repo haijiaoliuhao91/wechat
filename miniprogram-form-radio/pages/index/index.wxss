@@ -1,0 +1,18 @@
+view {
+  background-color: brown;
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+}
+
+text {
+  color: white;
+  display: block;
+  padding: 10px 0;
+  text-align: center;
+}
+
+radio {
+  margin-left: 20px;
+  color: green;
+}

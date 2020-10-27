@@ -1,0 +1,26 @@
+<!-- 
+  radio 单选框
+  value radio标识，选中时会触发radio-group的change事件，并携带radio的value值
+  checked 当前是否选中，可以用来设置默认选中
+  disabled 是否禁用
+  color radio的颜色，同css的color
+
+  radio-group 单项选择器，内部由多个radio组成
+  value radio标识，选中时会触发radio-group的change事件，并携带radio的value值
+
+ -->
+<view>
+  <text>radio 单选框</text>
+  <text>value radio标识，选中时会触发radio-group的change事件，并携带radio的value值</text>
+  <text>checked 当前是否选中，可以用来设置默认选中</text>
+  <text>disabled 是否禁用</text>
+  <text>color radio的颜色，同css的color</text>
+  <text>radio-group 单项选择器，内部由多个radio组成</text>
+  <text></text>
+  <radio-group bindchange="bindchange">
+    <radio value="北京" checked>北京</radio>
+    <radio value="上海">上海</radio>
+    <radio value="天津">天津</radio>
+    <radio value="四川">四川</radio>
+  </radio-group>
+</view>
