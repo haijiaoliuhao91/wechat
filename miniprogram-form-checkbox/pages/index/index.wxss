@@ -1,0 +1,18 @@
+view {
+  width: 100%;
+  height: auto;
+  background-color: brown;
+  margin-bottom: 10px;
+}
+
+text {
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 20px;
+}
+
+checkbox {
+  color: blue;
+  margin-left: 20px;
+}

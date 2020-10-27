@@ -1,0 +1,35 @@
+<!-- 
+  view 视图容器
+  hover-class 指定按下去的样式类，当hover-class='none'时没有点击态效果
+  hover-stop-propagation 指定是否阻止本节点的祖先节点出现点击态
+  hover-start-time 手指按下多久后出现点击态
+  hover-stay-time 手指松开后点击态保留时间
+
+  checkbox 复选框
+  value checkbox标识，选中时会触发checkbox-group的change事件，并携带checkbox的value值
+  checked 当前是否选中，可以用来设置默认选中
+  disabled 是否禁用
+  color checkbox的颜色，同css的color
+
+  checkbox-group 多项选择器
+  checkbox选中时会触发checkbox-group的change事件，并携带checkbox的value值
+ -->
+
+<view>
+  <text>checkbox 复选框</text>
+  <text>value checkbox标识，选中时触发checkbox-group的change事件，并携带checkbox的value值</text>
+  <text>disable 是否禁用</text>
+  <text>checked 当前是否选中，可以用来设置默认选中</text>
+  <text>color checkbox的颜色</text>
+  <checkbox value="男" checked color="green">男</checkbox>
+  <checkbox value="女" disabled>女</checkbox>
+</view>
+
+<view>
+  <text>checkbox-group 多项选择器</text>
+  <text>value checkbox标识，选中时会触发checkbox-group的change事件，并携带checkbox的value值</text>
+  <checkbox-group bindchange="bindchange">
+    <checkbox value="男">男</checkbox>
+    <checkbox value="女">女</checkbox>
+  </checkbox-group>
+</view>
