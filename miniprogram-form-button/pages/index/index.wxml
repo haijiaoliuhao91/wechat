@@ -1,0 +1,118 @@
+<!-- 
+  view组件
+  hover-class 指定按下去的样式类，当hover-class = 'none'，没有点击态效果
+  hover-stop-propagation 指定是否阻止本节点的祖先节点出现点击态
+  hover-start-time 手指按下多久后出现点击态，默认为50毫秒
+  hover-stay-time 手指松开后点击态保留时间，默认为400毫秒
+
+  icon组件 
+  type icon的类型 只有九种类型，分别是success、success_no_circle、warn、waiting、download、cancel、search、clear、info
+  size icon的大小，默认为23px
+  color icon的颜色
+ -->
+<view>
+  <text>type = 'defalut' 背景白色</text>
+  <button type="default" size="default">按钮</button>
+</view>
+
+<view>
+  <text>type = 'primary' 背景绿色</text>
+  <button type="primary">按钮</button>
+</view>
+
+<view>
+  <text>type = 'warn' 背景红色</text>
+  <button type="warn">按钮</button>
+</view>
+
+<view>
+  <text>plain 按钮是否镂空，背景色透明</text>
+  <button type="primary" plain>按钮</button>
+</view>
+
+<view>
+  <text>disabled 是否禁用</text>
+  <button type="primary" disabled>按钮</button>
+</view>
+
+<view>
+  <text>loading 按钮文字前是否带有loading图标</text>
+  <button type="default" loading>按钮</button>
+</view>
+
+<view>
+  <text>hover-class 指定按下去的样式类</text>
+  <button type="default" hover-class="hover_btn">按钮</button>
+</view>
+
+<view>
+  <text>hover-start-time 手指按下多久后出现点击态，默认为20毫秒</text>
+  <button type="default" hover-class="hover_btn" hover-start-time="300">按钮</button>
+</view>
+
+<view>
+  <text>hover-stay-time 手指松开后点击态保留时间，默认为70毫秒</text>
+  <button type="default" hover-stay-time="600">按钮</button>
+</view>
+
+<view hover-class="hover_view">
+  <text>hover-stop-propagation 指定是否阻止本节点的祖先节点出现点击态</text>
+  <button type="default" hover-stop-propagation hover-class="hover_btn">按钮</button>
+</view>
+
+<view bindtap="tap">
+  <text>阻止事件冒泡</text>
+  <button type="primary" catchtap="tap">按钮</button>
+</view>
+
+<view>
+  <text>open-type 微信开放能力 contact 打开客服会话</text>
+  <text>binderror 使用微信开放能力发生错误时的回调</text>
+  <button type="primary" open-type="contact" binderror="binderror">contact</button>
+</view>
+
+<view>
+  <text>open-type 微信开放能力 share 触发用户转发</text>
+  <text>binderror 使用微信开放能力发生错误时的回调</text>
+  <button type="primary" open-type="share" binderror="binderror">share</button>
+</view>
+
+<view>
+  <text>open-type 微信开放能力 getPhoneNumber 获取用户手机号</text>
+  <text>binderror 使用微信开放能力发生错误时的回调</text>
+  <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getphonenumber" binderror="binderror">getPhoneNumber</button>
+</view>
+
+<view>
+  <text>open-type 微信开放能力 getUserInfo 获取用户信息</text>
+  <text>binderror 使用微信开放能力发生错误时的回调</text>
+  <button type="primary" open-type="getUserInfo" bindgetuserinfo="getuserinfo" binderror="binderror">getUserInfo</button>
+</view>
+
+<view>
+  <text>open-type 微信开放能力 launchApp 代开APP</text>
+  <text>binderror 使用微信开放能力发生错误时的回调</text>
+  <button type="primary" open-type="launchApp" bindlaunchapp="launchapp" binderror="binderror">launchApp</button>
+</view>
+
+<view>
+  <text>open-type 微信开放能力 openSetting 打开授权设置页面</text>
+  <text>binderror 使用微信开放能力发生错误时的回调</text>
+  <button type="primary" open-type="openSetting" bindopensetting="opensetting" binderror="binderror">openSetting</button>
+</view>
+
+<view>
+  <text>open-type 微信开放能力 feedback 打开意见反馈界面</text>
+  <text>binderror 使用微信开放能力发生错误时的回调</text>
+  <button type="primary" open-type="feedback" binderror="binderror">feedback</button>
+</view>
+
+<view>
+  <text>open-type 微信开放能力 contact 打开客服会话</text>
+  <text>show-message-card 是否显示会话内消息卡片</text>
+  <text>send-message-title 会话内消息卡片标题</text>
+  <text>send-message-img 会话内消息卡片图片</text>
+  <text>send-message-path 会话内消息卡片点击跳转小程序路径</text>
+  <text>session-from 会话来源 open-type 为 contact 市有效</text>
+  <button type="primary" open-type="contact" show-message-card send-message-title="咨询红包" send-message-img="123.png" send-message-path="" session-from="上海">send-message-title</button>
+</view>

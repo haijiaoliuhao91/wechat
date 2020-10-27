@@ -1,0 +1,26 @@
+view {
+  width: 100%;
+  height: auto;
+  background-color: chocolate;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+text {
+  color: white;
+  padding: 20px 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.hover_btn {
+  color: red;
+  transform: scale(1.5, 1.5);
+}
+
+.hover_view {
+  background-color: blue;
+  border-radius: 10px;
+}
+

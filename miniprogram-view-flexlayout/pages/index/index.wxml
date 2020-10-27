@@ -1,0 +1,155 @@
+<view class="section">
+  <view class="section_title">justify-content:flex-start</view>
+  <view style="display:flex;flex-direction:row;justify-content:flex-start;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>
+
+<view class="section">
+  <view style="display:flex;flex-direction:row-reverse;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>
+
+<!-- justify-content，调整内容(在主轴上) -->
+<!-- 在主轴上向尾部对齐，默认是flex-end -->
+<view class="section">
+  <view class="gap">justify-content:flex-end</view>
+  <view style="display:flex;flex-direction:row;justify-content:flex-end;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>
+
+<!-- 向中间对齐，间隙保留在两边 -->
+<view class="section">
+  <view style="display:flex;flex-direction:row;justify-content:center;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>
+
+<!-- 元素两端对齐，元素之间有相同的间隙 -->
+<view class="section">
+  <view style="display:flex;flex-direction:row;justify-content:space-between;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>
+
+<!-- 元素平局分配，但两端保留一半的间距 -->
+<view class="section">
+  <view style="display:flex;flex-direction:row;justify-content:space-around;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>
+
+<!-- align-items，排列元素(在侧轴上) -->
+<view class="gap">algin-items，排列元素(在侧轴上)</view>
+<!-- 侧轴对齐, 拉伸填满容器 -->
+<view class="section">
+  <view style="display:flex;flex-direction:row;justify-content:space-around;align-items:stretch;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+  </view>
+</view>
+
+<!-- 侧轴头部对齐 -->
+<view class="section">
+  <view style="display:flex;flex-direction:row;justify-content:space-around;align-items:flex-start">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+  </view>
+</view>
+
+<!-- 侧轴尾部对齐 -->
+<view class="section">
+  <view style="display:flex;flex-direction:row;justify-content:space-around;align-items:flex-end;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+  </view>
+</view>
+
+<!-- 侧轴居中对齐 -->
+<view class="section">
+  <view style="display:flex;flex-direction:row;justify-content:space-around;align-items:center;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+  </view>
+</view>
+
+<!-- 以子元素的第一行文字对齐 -->
+<view class="section">
+  <view class="gap">以子元素的第一行文字对齐</view>
+  <view style="display:flex;flex-direction:row;justify-content:space-around;align-items:baseline;">
+    <view class="bc_green">1</view>
+    <view class="bc_red" style="padding-top:30px;">2</view>
+    <view class="bc_blue" style="height:auto;line-height:150px;">3</view>
+  </view>
+</view>
+
+<!-- 多了换行，flex-wrap -->
+<view class="section">
+  <view class="gap">多了换行</view>
+  <view style="display:flex;flex-direction:row;justify-content:flex-start;algin-items:baseline;flex-wrap:wrap;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+    <view class="bc_red" style="height:auto;">4</view>
+    <view class="bc_blue" style="height:auto;">5</view>
+  </view>
+</view>
+
+<!-- 多行侧轴的对齐方式 -->
+<view class="section">
+  <view class="gap">多行侧轴的对齐方式</view>
+  <view style="display:flex;flex-direction:row;justify-content:flex-start;align-items:baseline;flex-wrap:wrap;height:300px;background:yellow;align-content:space-around;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+    <view class="bc_blue" style="height:auto;">3</view>
+  </view>
+</view>
+
+<!-- 以纵向为主轴，横向为侧轴 -->
+<view class="section">
+  <view style="display:flex;flex-direction:column;height:300px;background-color:cyan;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>
+
+<view class="section">
+  <view class="gap">flex-direction: column;align-items: center;</view>
+  <view style="background-color:brown;height:300px;display:flex;flex-direction:column;align-items:center;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>
+
+<view class="section">
+  <view class="gap">flex-direction: column-reverse</view>
+  <view style="background-color:cyan;display:flex;flex-direction:column-reverse;">
+    <view class="bc_green">1</view>
+    <view class="bc_red">2</view>
+    <view class="bc_blue">3</view>
+  </view>
+</view>

@@ -1,0 +1,68 @@
+<!-- hover-class 指定按下去的样式类，当hover-class = 'none'时，没有点击态效果 -->
+<!-- hover-stop-propagation 是否阻止该节点的祖先节点出现点击态  -->
+<!-- hover-start-time 按住多久后出现点击态，默认50ms -->
+<!-- hover-stay-time 手指松开后点击态保留时间，默认400ms -->
+
+<!-- 示例2 -->
+<view class="section">
+  <view class="gap">2 示例</view>
+  <view hover-class="bc_red" class="section_title">content</view>
+</view>
+
+<!-- 示例3 -->
+<view class="section">
+  <view class="gap">3 示例</view>
+  <!-- 阻止父节点出现hover状态 -->
+  <view hover-class="bc_red" class="section_title">
+    parent
+    <view hover-stop-propagation hover-class="bc_green" class="section_title">
+      child view
+    </view>
+  </view>
+</view>
+
+<!-- 示例4 事件三阶段 -->
+<view class="section">
+  <view class="gap">4 示例 事件三阶段</view>
+  <!-- 阻止父节点出现hover态 -->
+  <view id="parentview" hover-class="bc_red" bindtap="onTap" class="section_title">
+    parent
+    <view id="childview" hover-stop-propagation="{{true}}" hover-class="bc_green" bindtap="onTap" class="section_title">
+      child view
+    </view>
+  </view>
+</view>
+
+<!-- 5 子组件只输出一次 -->
+<view class="section">
+  <view class="gap">5 示例</view>
+  <!-- 阻止父节点出现hover状态，阻止冒泡 -->
+  <view id="parentView" hover-class="bc_red" bindtap="onTap" class="section_title">
+    parent
+    <view id="childView" hover-stop-propagation hover-class="bc_green" catchtap="onTap" class="section_title">
+      child view
+    </view>
+  </view>
+  <view></view>
+</view>
+
+<!-- 8 示例 -->
+<view class="section">
+  <view class="gap">8 按钮示例</view>
+  <!-- 普通按钮 -->
+  <view class="section">
+    <button class="btn" type="primary">完成</button>
+  </view>
+  <!-- 圆形按钮 -->
+  <view class="section">
+    <button hover-class="circle-btn_hover_btn">
+      <icon type="success" size="80px" />
+    </button>
+  </view>
+  <!-- 矩形按钮 -->
+  <view class="section">
+    <button type="default" class="btn" plain hover-class="rect-btn_hover_btn">
+      <icon type="success_no_circle" size="26"/>完成
+    </button>
+  </view>
+</view>
