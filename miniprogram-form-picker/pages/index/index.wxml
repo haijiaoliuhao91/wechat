@@ -1,0 +1,79 @@
+<!-- 
+  picker 从底部弹起的滚动选择器
+  header-text 选择器的标题，仅安卓可用
+  mode 选择器类型，selector 普通选择器 multiSelector 多列选择器 time 时间选择器 date 日期选择器 region 省市区选择器
+  disabled 是否禁用
+  bindcancel 取消选择时触发
+
+  mode = selector 普通选择器
+  range array/object array， mode为selector或multiSelector时，range有效
+  range-key 当range是一个Object Array时，通过range-key来指定Object中key的值作为选择器显示内容
+  value 表示选择了range中的第几个(下标从0开始)
+  bindchange value改变时触发change事件
+
+  mode = multiSelector 多列选择器
+  range array/object array，mode为selector或multiSelector时，range有效
+  range-key 当range是一个Object Array时，通过range-key来指定Object中key的值作为选择器显示内容
+  value 表示选择range中的第几个(下标从0开始)
+  bindchange value改变时触发change事件
+  bindcolumnchange 列改变时触发
+  
+ -->
+
+ <view>
+   <text>普通选择器 range为array</text>
+   <picker mode="selector" range="{{array}}" value="{{index}}" bindchange="bindchange">
+    <view class="picker">当前选择：{{array[index]}}</view>
+   </picker>
+ </view>
+
+<view>
+  <text>普通选择器 range为object array</text>
+  <text>当range是一个object array时，需要使用range-key指定object中key的值作为选择器显示内容</text>
+  <text>value 选择range中的第几个(下标从0开始)</text>
+  <text>value改变时会触发change事件</text>
+  <picker mode="selector" range="{{objectArray}}" range-key="name" value="{{index}}" bindchange="bindchange">
+    <view class="picker">当前选择：{{objectArray[index].name}}</view>
+  </picker>
+</view>
+
+<view>
+  <text>多列选择器 mode=multiSelector</text>
+  <picker mode="multiSelector" range="{{multiArray}}" value="{{multiIndex}}" bindchange="bindMultiChange" bindcolumnchange="bindcolumnchange">
+    <view class="picker">当前选择：{{multiArray[0][multiIndex[0]]}}, {{multiArray[1][multiIndex[1]]}}, {{multiArray[2][multiIndex[2]]}}</view>
+  </picker>
+</view>
+
+<view>
+  <text>时间选择器 mode=time </text>
+  <text>value 表示选中的时间，格式为"hh:mm"</text>
+  <text>start 表示有效时间范围的开始，字符串格式为"hh:mm"</text>
+  <text>end 表示有效时间范围的结束，字符串格式为"hh:mm"</text>
+  <text>bindchange value改变时会触发change事件</text>
+  <picker mode="time" start="9:01" end="23:59" value="{{time}}" bindchange="bindtimechange">
+    <view class="picker">当前时间：{{time}}</view>
+  </picker>
+</view>
+
+<view>
+  <text>日期选择器 mode=date </text>
+  <text>value 表示选中的日期，格式为"YYYY-MM-DD"，默认值为当天</text>
+  <text>start 表示有效日期范围的开始，字符串格式为"YYYY-MM-DD"</text>
+  <text>end 表示有效日期范围的结束，字符串格式为"YYYY-MM-DD"</text>
+  <text>fields 表示选择器的粒度，year 选择器粒度为年 month 选择器粒度为月 day 选择器粒度为日</text>
+  <text>bindchange value改变时会触发change事件</text>
+  <picker mode="date" start="1990-01-21" end="2099-12-31" value="{{date}}" fields="day" bindchange="binddatechange">
+    <view class="picker">当前选择：{{date}}</view>
+  </picker>
+</view>
+
+<view>
+  <text>省市区选择器 mode=region</text>
+  <text>value 表示选中的省市区，默认选中每一列的第一个值</text>
+  <text>custom-item 可为每一列的顶部添加一个自定义的项</text>
+  <text>bindchange value改变时会触发change事件</text>
+  <text>bindcancel 取消选择时触发cancel事件</text>
+  <picker mode="region" value="{{region}}" bindchange="bindregionchange" bindcancel="bindcancel" custom-item="123">
+    <view class="picker">当前选择：{{region[0]}}-{{region[1]}}-{{region[2]}}</view>
+  </picker>
+</view>

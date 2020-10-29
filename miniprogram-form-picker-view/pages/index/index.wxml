@@ -1,0 +1,38 @@
+<!-- 
+  picker-view 嵌入页面的滚动选择器，其中只可放置picker-view-column组件，其它节点不会显示
+  value 数组中的数字依次表示 picker-view 内的 picker-view-column 选择的第几项(下标从0开始)，数字大于picker-view-column可选项长度时，选择最后一项
+  indicator-style 设置选择器中间选中框的样式
+  indicator-class 设置选择器中间选中框的类名
+  mask-style 设置蒙层的样式
+  mask-class 设置蒙层的赖明
+  bindchang 滚动选择时触发change事件
+  bindpickstart 滚动选择开始时触发
+  bindpickend 滚动选择结束时触发
+
+  picker-view-column 滚动选择器子项。仅可放置于picker-view中，其子节点的高度会自动设置成与picker-view的选中框的高度一致
+ -->
+
+<view>
+  <text>picker-view 嵌入页面的滚动选择器，其中只可放置picker-view-column组件，其它节点不会显示</text>
+  <text>picker-view-column 滑动选择器子项</text>
+  <text>bindchange 滚动选择时触发</text>
+  <text>bindpickstart 滚动选择开始时触发</text>
+  <text>bindpickend 滚动选择结束时触发</text>
+</view>
+
+<view><text>{{year}}年{{month}}月{{day}}日{{ isDaytime ? "白天" : "夜晚"}}</text></view>
+<picker-view value="{{value}}" indicator-style="height:50px;" bindchange="bindchange" bindpickstart="bindpickstart" bindpickend="bindpickend">
+    <picker-view-column>
+      <view class="picker_view" wx:for="{{years}}" wx:key="year">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view class="picker_view" wx:for="{{monthes}}" wx:key="month">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view class="picker_view" wx:for="{{days}}" wx:key="day">{{item}}日</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view class="picker_view"><image class="picker-icon" src="../../images/day.png" /></view>
+      <view class="picker_view"><image class="picker-icon" src="../../images/night.png" /></view>
+    </picker-view-column>
+  </picker-view>

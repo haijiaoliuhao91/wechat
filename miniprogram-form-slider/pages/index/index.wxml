@@ -1,0 +1,64 @@
+<!-- 
+  slider 滑动选择器
+  min 最大值
+  max 最大值
+  step 步长，取值必须大于0，并且能被(max - min)整除
+  disabled 是否禁用
+  activeColor 已选择的颜色
+  backgroundColor 未选择的颜色
+  value 当前的value值
+  show-value 是否显示当前value
+  block-size 滑块的大小，取值范围为12-28，默认为28
+  block-color 滑块的颜色
+  bindchange 完成一次拖动后触发的事件
+  bindchanging 拖动过程中触发的事件
+ -->
+
+<view>
+  <text>slider 滑动选择器</text>
+  <text>min 最小值 max 最大值</text>
+  <text>show-value 是否显示当前value</text>
+  <slider min="10" max="80" show-value />
+</view>
+
+<view>
+  <text>step 步长，取值必须大于0，并且可被(max - min)整除</text>
+  <slider show-value step="10" />
+</view>
+
+<view>
+  <text>disabled 是否禁用</text>
+  <slider disabled />
+</view>
+
+<view>
+  <text>value 当前取值 show-value 是否显示当前value</text>
+  <slider show-value value="50" />
+</view>
+
+<view>
+  <text>activeColor 已选择的颜色</text>
+  <text>backgroundColor 未选择的颜色</text>
+  <slider activeColor="red" backgroundColor="green" />
+</view>
+
+<view>
+  <text>block-size 滑块的大小，取值范围为12 - 28, 默认为28</text>
+  <slider block-size="18px" />
+</view>
+
+<view>
+  <text>block-size 滑块的大小，取值范围为12 - 28，默认为28</text>
+  <text>block-color 滑块的颜色</text>
+  <slider block-size="18px" block-color="green" />
+</view>
+
+<view>
+  <text>bindchange 完成一次拖动后触发的事件</text>
+  <slider bindchange="bindchange" />
+</view>
+
+<view>
+  <text>bindchanging 拖动过程中触发的事件</text>
+  <slider bindchanging="bindchanging" />
+</view>

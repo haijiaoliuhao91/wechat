@@ -10,6 +10,11 @@ text {
   display: block;
   color: white;
   text-align: center;
+  font-size: 14px;
   padding: 10px 0;
-  font-size: 12px;
+}
+
+.picker {
+  color: white;
+  text-align: center;
 }

@@ -1,0 +1,30 @@
+view {
+  background-color: brown;
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+text {
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+
+textarea {
+  background-color: white;
+  margin: 0 5%;
+  width: 90%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* 指定placeholder-class的样式类 */
+.placeholder-style {
+  color: red;
+  font-size: 18px;
+  font-weight: bolder;
+}

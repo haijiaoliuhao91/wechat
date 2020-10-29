@@ -1,0 +1,43 @@
+<!-- 
+  switch 开关选择器
+  checked 是否选中
+  disabled 是否禁用
+  type 样式，有效值为switch、checkbox
+  color switch的颜色，同css的color
+  bindchange checked改变时会触发change事件
+ -->
+
+ <view>
+  <text>switch 开关选择器</text>
+  <switch />
+ </view>
+
+ <view>
+  <text>checked 是否选中</text>
+  <switch checked />
+ </view>
+
+ <view>
+  <text>disabled 是否禁用</text>
+  <switch disabled />
+ </view>
+
+ <view>
+  <text>type switch样式，有效值为switch、checkbox</text>
+  <switch type="switch" />
+ </view>
+
+ <view>
+  <text>type switch样式，有效值为switch、checkbox</text>
+  <switch type="checkbox" />
+ </view>
+
+ <view>
+  <text>color switch的颜色，同css中的color</text>
+  <switch color="red" />
+ </view>
+
+ <view>
+  <text>bindchange checked改变时会触发change事件</text>
+  <switch bindchange="bindchange" />
+ </view>

@@ -1,0 +1,147 @@
+<!-- 
+  textarea            多行输入框，该组件是原生组件
+  value               输入框的内容
+  placeholder         输入框为空时占位符
+  placeholder-style   指定placeholder的样式，目前仅支持color、font-size、font-weight
+  placeholder-class   指定placeholder的样式类
+  disabled            是否禁用
+  maxlength           最大输入长度，设置为-1的时候不限制最大长度
+  auto-focus          自动聚焦，拉起键盘
+  focus               获取焦点
+  auto-height         是否自动增高，设置auto-height时, style.height不生效
+  fixed               如果 textarea 是在一个 position: fixed 的区域，需要显示指定属性fixed为true
+  cursor-spacing      指定光标与键盘的距离。取textarea距离底部的距离和cursor-spacing指定的距离的最小值作为光标与键盘的距离
+  cursor              指定focus时光标的位置
+  show-confirm-bar    是否显示键盘上方带有"完成"按钮那一栏
+  adjust-position     键盘弹起时，是否自动上推页面
+  hold-keyboard       focus时，点击页面的时候不收起键盘
+  disable-default-padding 是否去掉iOS下的默认内边距
+
+  bindfocus           输入框聚焦时触发
+  bindblur            输入框失去焦点时触发
+  bindlinechange      输入框行数变化时触发
+  bindinput           键盘输入时触发
+  bindconfirm         点击完成时触发
+  bindkeyboardheightchange 键盘高度发生变化时触发
+ -->
+
+<!-- 
+  box-sizing 定义元素盒子解析方式
+  content-box border和padding设置后用于元素的总长度
+  border-box  border和padding设置后不用于元素的总长度
+ -->
+
+ <view>
+  <text>placeholder 输入框为空时占位符</text>
+  <textarea placeholder="请输入手机号"></textarea>
+ </view>
+
+ <view>
+  <text>placeholder-style 指定placeholder的样式，目前仅支持color、font-size、font-weight</text>
+  <textarea placeholder="请输入手机号" placeholder-style="color: rgba(153, 153, 153);font-size: 16px;font-weight: 500;"></textarea>
+ </view>
+
+ <view>
+  <text>palceeholder-class 指定placeholder的样式类</text>
+  <text>disabled 是否禁用</text>
+  <textarea disabled placeholder="请输入手机号码" placeholder-class="placeholder-style"></textarea>
+ </view>
+
+ <view>
+  <text>maxlength 最大输入长度，设置为-1的时候不限制最大长度</text>
+  <textarea placeholder="请输入反馈信息" maxlength="10"></textarea>
+ </view>
+
+ <view>
+  <text>auto-focus 自动获取焦点，拉起键盘</text>
+  <textarea placeholder="请输入反馈信息" auto-focus></textarea>
+ </view>
+
+<view>
+  <text>focus 获取焦点</text>
+  <textarea focus placeholder="请输入描述信息"></textarea>
+</view>
+
+<view>
+  <text>auto-height 是否自动增高，设置auto-height时，style.height不生效</text>
+  <textarea placeholder="请输入描述信息" focus auto-height></textarea>
+</view>
+
+<view style="position: fixed;top: 10px; left: 0;z-index: 99;">
+  <text>fixed 如果textarea是在一个position:fixed的区域，需要显示指定fixed的属性值为true</text>
+  <textarea placeholder="请输入反馈内容" fixed="{{true}}"></textarea>
+</view>
+
+<view>
+  <text>cursor-spacing 指定光标与键盘的距离。取textarea距离底部的距离和cursor-spacing指定的距离的最小值作为光标与键盘的距离</text>
+  <textarea placeholder="指定光标与键盘的距离" cursor-spacing="{{80}}"></textarea>
+</view>
+
+<view>
+  <text>cursor 指定focus时的光标位置 暂时没看到效果</text>
+  <textarea placeholder="指定focus时光标的位置" focus cursor="{{-150}}"></textarea>
+</view>
+
+<view>
+  <text>show-confirm-bar 是否显示键盘上方带有"完成"按钮那一栏</text>
+  <textarea placholder="是否显示键盘上方带有'完成'按钮那一栏" show-confirm-bar="{{false}}"></textarea>
+</view>
+
+<view>
+  <text>selection-start 光标起始位置，自动聚焦时有效，需要与selection-end配合使用</text>
+  <text>selection-end   光标结束位置，自动聚焦时有效，需要与Selection-start配合使用</text>
+  <textarea 
+    placeholder="selection-start 光标起始位置，自动聚焦时有效，需要与selection-end配合使用，selection-end 光标结束位置，自动聚焦时有效，需要与selection-start配合使用"
+    cursor-spacing="{{100}}"
+    auto-focus
+    ></textarea>
+</view>
+
+<view>
+  <text>adjust-position 键盘弹起时，是否自动上推页面</text>
+  <textarea placeholder="adjust-postion 键盘弹起时，是否自动上推页面" adjust-position="{{false}}"></textarea>
+</view>
+
+<view>
+  <text>hold-keyboard focus时，点击页面的时候不收起键盘</text>
+  <textarea placeholder="hold-keyboard focus时，点击页面的时候不收起键盘" auto-focus hold-keyboard="{{true}}" show-confirm-bar="{{false}}"></textarea>
+</view>
+
+<view>
+  <text>disabled-default-padding 是否去掉iOS下的默认内边距</text>
+  <textarea placeholder="disable-default-padding 是否去掉iOS下的默认内边距" disable-default-padding></textarea>
+</view>
+
+<view>
+  <text>bindfocus 输入框聚焦时触发</text>
+  <textarea placeholder="bindfocus 输入框聚焦时触发" bindfocus="bindfocus"></textarea>
+</view>
+
+<view>
+  <text>bindblur 输入框失去焦点时触发</text>
+  <textarea placeholder="bindblur 输入框失去焦点时触发" bindblur="bindblur"></textarea>
+</view>
+
+<view>
+  <text>bindlinechange 输入框行数变化时触发</text>
+  <textarea placeholder="bindlinechange 输入框行数变化时触发" bindlinechange="bindlinechange"></textarea>
+</view>
+
+<view>
+  <text>bindinput 键盘输入时触发</text>
+  <text>show-confirm-bar 是否展示键盘上方带有"完成"按钮那一栏</text>
+  <textarea placeholder="bindinput 键盘输入时触发" bindinput="bindinput"></textarea>
+</view>
+
+<view>
+  <text>bindconfirm 点击完成时触发</text>
+  <textarea placeholder="bindconfirm 点击完成时触发" bindconfirm="bindconfirm"></textarea>
+</view>
+
+<view>
+  <text>bindkeyboardheightchange 键盘高度发生变化时触发</text>
+  <textarea placeholder="bindkeyboardheightchange 键盘高度发生变化时触发" bindkeyboardheightchange="bindkeyboardheightchange"></textarea>
+</view>
+
+
+

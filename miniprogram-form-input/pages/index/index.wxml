@@ -1,0 +1,99 @@
+<!-- 
+  input 输入框，该组件是原生组件
+  value 输入框的初始内容
+  placeholder 输入框为空时的占位符
+  placeholder-style 指定placeholder的样式
+  placeholder-class 指定placeholder的样式类
+  disabled 是否禁用
+  maxlength 最大输入长度，当设置为-1的时候不限制最大长度
+ -->
+
+ <view>
+  <text>placeholder 输入框内容为空时的占位符</text>
+  <text>placeholder-style 指定placeholder的样式</text>
+  <text>placeholder-class 指定placeholder的样式类</text>
+  <text>disabled 是否禁用</text>
+  <input placeholder="请输入手机号" placeholder-style="color: red; font-size: 18px; font-weight: bolder;font-style: italic;" placeholder-class="placeholder-style" disabled="{{false}}" />
+ </view>
+
+ <view>
+   <text>maxlength 最大输入长度，设置为-1的时候不限制最大长度</text>
+   <input placeholder="请输入手机号" maxlength="11" />
+ </view>
+
+ <view>
+   <text>cursor-spacing 指定光标与键盘的距离，取input距离底部的距离和cursor-spacing指定的距离的最小值作为光标与键盘的距离</text>
+   <input placeholder="请输入手机号" cursor-spacing="{{100}}" />
+</view>
+
+<view>
+  <text>cursor 指定focus时的光标位置</text>
+  <text>selection-start 光标起始位置，自动聚焦时有效，需要与selection-end配合使用</text>
+  <text>selection-end   光标结束位置，自动聚焦时有效，需要与selection-start配合使用</text>
+  <input placeholder="请输入手机号" focus cursor="{{50}}" selection-start="{{10}}" selection-end="{{20}}" />
+</view>
+
+<view>
+  <text>autofocus 自动聚焦，拉起键盘</text>
+  <input placeholder="请输入手机号" autofocus= />
+</view>
+
+<view>
+  <text>adjust-postion 键盘弹起时，是否自动上推界面</text>
+  <input placeholder="请输入手机号" adjust-position="{{false}}" />
+</view>
+
+<view>
+  <text>password 是否是密码类型</text>
+  <input placeholder="请输入密码" password />
+</view>
+
+<view>
+  <text>confirm-type 设置键盘右下角按钮文字，仅在type="text"时有效</text>
+  <text>confirm-type 合法值 send(发送) done(完成) go(前往) search(搜索) next(下一个)</text>
+  <input placeholder="设置键盘右下角按钮文字，仅在type=text时有效" confirm-type="go" />
+</view>
+
+<view>
+  <text>confirm-holde 点击键盘右下角按钮时是否保持键盘不收起</text>
+  <input placeholder="请输入手机号" confirm-type="send" confirm-hold />
+</view>
+
+<view>
+  <text>always-embed 强制input处于同层状态，默认focus时input会切换到非同层状态(仅在iOS下有效)</text>
+  <input placeholder="请输入手机号" always-embed />
+</view>
+
+<view>
+  <text>hold-keyboard focus时，点击页面时不收起键盘</text>
+  <input placeholder="请输入手机号" focus hold-keyboard confirm-hold />
+</view>
+
+<view>
+  <text>type input的类型</text>
+  <text>text 文本输入键盘</text>
+  <input type="text" placeholder="请输入昵称" />
+  <text>number 数字输入键盘</text>
+  <input type="number" placeholder="请输入手机号" />
+  <text>idcard 身份证输入建盘</text>
+  <input type="idcard" placeholder="请输入身份证" />
+  <text>digit 带小数点的数字键盘</text>
+  <input type="digit" placeholder="请输入价格" />
+</view>
+
+<view>
+  <text>bindinput 键盘输入时触发</text>
+  <text>bindfocus 输入框聚焦时触发</text>
+  <text>bindblur 输入框失去焦点时触发</text>
+  <text>bindconfirm 点击完成按钮时触发</text>
+  <text>bindkeyboardheightchange 键盘高度变化时触发</text>
+  <input 
+    type="text" placeholder="请输入手机号" 
+    confirm-type="next"
+    bindinput="bindinput" 
+    bindfocus="bindfocus"
+    bindblur="bindblur"
+    bindconfirm="bindconfirm"
+    bindkeyboardheightchange="bindkeyboardheightchange"
+  />
+</view>
