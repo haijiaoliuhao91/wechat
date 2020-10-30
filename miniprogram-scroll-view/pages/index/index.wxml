@@ -1,0 +1,123 @@
+<!-- 
+  scroll-view 可滚动视图区域。使用竖向滚动时，需要给scroll-view一个固定高度
+  scroll-x 允许横向滚动
+  scroll-y 允许竖向滚动
+  upper-threshold 距顶部或左侧多远时触发scrolltoupper事件
+  lower-threshold 距底部或右侧多远时触发scrolltolower事件
+
+ -->
+
+<wxs module="refresh">
+
+  module.exports = {
+    /*! 自定义下拉刷新控件被下拉 */
+    onPulling: function(e, instance) {
+      var p = Math.min(e.detail.dy / 80, 1)
+      var view = instance.selectComponent('.refresh-container')
+      view.setStyle({
+        opacity: p,
+        transform: "scale(" + p + ")"
+      })
+    }
+  }
+
+</wxs>
+
+<view>
+  <text>自定义下拉刷新</text>
+  <scroll-view
+    scroll-y
+    refresher-enabled
+    refresher-default-style="none"
+    refresher-background="lightgreen"
+    refresher-threshold="80"
+    bindrefresherpulling="{{refresh.onPulling}}"
+    style="width: 100%;height: 300px;"
+  >
+    <view slot="refresher" class="refresh-container" style="display: block;background-color: blue;width: 100%;height: 80px;display: flex; align-items: center;">
+      <view style="position: absolute;width: 100%;text-align: center;">下拉刷新</view>
+    </view>
+    <view style="width: 100%;height: 100%;background-color: green;"></view>
+    <view style="width: 100%;height: 100%;background-color: cyan;"></view>
+    <view style="width: 100%;height: 100%;background-color: red;"></view>
+  </scroll-view>
+</view>
+
+<view>
+  <text>scroll-x 允许横向滚动</text>
+  <text>scroll-left 设置横向滚动条的位置</text>
+  <text>scroll-with-animation 设置滚动条位置时使用动画过渡</text>
+  <scroll-view scroll-x scroll-left="414rpx" scroll-with-animation bindscroll="bindscroll" style="width: 100%;white-space: nowrap;">
+    <view style="width: 100%;height: 300px;background-color: green;display: inline-block;"></view>
+    <view style="width: 100%;height: 300px;background-color: cyan;display: inline-block;"></view>
+    <view style="width: 100%;height: 300px;background-color: blue;display: inline-block;"></view>
+  </scroll-view>
+</view>
+
+<view>
+  <text>scroll-y 允许纵向滚动</text>
+  <text>enable-back-to-top iOS点击状态栏、安卓双击标题栏时，滚动条返回顶部，只支持竖向</text>
+  <scroll-view scroll-y enable-back-to-top style="width: 100%; height: 300px;">
+    <view style="width: 100%;height: 100%;background-color: green;"></view>
+    <view style="width: 100%;height: 100%;background-color: cyan;"></view>
+    <view style="width: 100%;height: 100%;background-color: blue;"></view>
+  </scroll-view>
+</view>
+
+<view>
+  <text>upper-threshold 距离顶部或左侧多远时触发scrolltoupper事件</text>
+  <text>lower-threshold 距离右侧或底部多远时触发scrolltolower事件</text>
+  <text>scroll-left 设置横向滚动条位置</text>
+  <scroll-view scroll-x scroll-left="414rpx" style="width: 100%;white-space: nowrap;" upper-threshold="30px" lower-threshold="30px" bindscrolltoupper="bindscrolltoupper" bindscrolltolower="bindscrolltolower">
+    <view style="width: 100%;height: 300px;background-color: green;display: inline-block;"></view>
+    <view style="width: 100%;height: 300px;background-color: cyan;display: inline-block;"></view>
+    <view style="width: 100%;height: 300px;background-color: blue;display: inline-block;"></view>
+  </scroll-view>
+</view>
+
+<view>
+  <text>scroll-y 允许纵向滚动</text>
+  <text>scroll-top 设置纵向滚动条位置</text>
+  <text>scroll-anchoring 开启scroll-anchoring特性，即控制滚动条位置不随内容变化而抖动，仅在iOS下生效，安卓下可参考overflow-anchor属性</text>
+  <scroll-view scroll-y scroll-top="150" scroll-anchoring style="width: 100%;height: 300px;" upper-threshold="30" lower-threshold="30" bindscrolltoupper="bindscrolltoupper" bindscrolltolower="bindscrolltolower">
+    <view style="width: 100%;height: 100%;background-color: green;"></view>
+    <view style="width: 100%;height: 100%;background-color: cyan;"></view>
+    <view style="width: 100%;height: 100%;background-color: blue;"></view>
+  </scroll-view>
+</view>
+
+<view>
+  <text>scroll-y 允许纵向滚动</text>
+  <text>refresher-enabled 开启自定义下拉刷新</text>
+  <text>refresher-threshold 设置自定义下拉刷新阈值</text>
+  <text>refresher-default-style 设置自定义下拉刷新默认样式，支持black、white、none，none表示不使用默认样式</text>
+  <text>refresher-background 设置自定义下拉刷新区域背景颜色</text>
+  <text>refresher-triggered 设置当前下拉刷线状态 true表示下拉刷新已经被触发，false表示下拉刷新未被触发</text>
+  <text>bindrefresherpulling 自定义下拉刷新控件被下拉</text>
+  <text>bindrefresherrefresh 自定义下拉刷新被触发</text>
+  <text>bindrefresherrestore 自定义下拉刷新被复位</text>
+  <text>bindrefresherabort 自定义下拉刷新被终止</text>
+  <text>bindragstart 滑动事件开始(同时开启enhanced属性后生效)</text>
+  <text>binddragging 滑动事件(同时开启enhanced属性后生效)</text>
+  <text>binddragend 滑动事件结束(同时开启enhanced属性后生效)</text>
+  <text>bindscroll 滚动式触发</text>
+  <scroll-view 
+    enhanced 
+    bounces 
+    refresher-enabled 
+    refresher-threshold="30" 
+    refresher-default-style="white"  
+    refresher-background="blue"
+    refresher-triggered="{{trigged}}"
+    bindrefresherpulling="bindrefresherpulling"
+    bindrefresherrefresh="bindrefresherrefresh"
+    bindrefresherrestore="bindrefresherrestore"
+    bindrefresherabort="bindrefresherabort"
+    binddragstart="binddragstart"
+    binddragging="binddragging"
+    binddragend="binddragend"
+    style="width: 100%;height: 300px;"
+  >
+    <view style="width: 100%;height: 100%; background-color: red;"></view>
+  </scroll-view>
+</view>
