@@ -1,0 +1,14 @@
+<page-meta
+  background-color-top="#ff0000"
+  background-color-bottom="#00ff00"
+  root-background-color="#0000ff"
+  page-style="text-align: center;color: white;"
+  bindscroll="bindscroll"
+>
+<navigation-bar
+  title="商品详情"
+  background-color="#00ff00"
+/>
+  <view bindtap="back">返回(wx.navigateBack)</view>
+  <navigator open-type="navigateBack" hover-class="none">返回(navigator)</navigator>
+</page-meta>

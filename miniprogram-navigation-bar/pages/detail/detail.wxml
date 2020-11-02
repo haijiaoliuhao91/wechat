@@ -1,0 +1,18 @@
+<page-meta
+  background-text-style="light"
+  background-color-top="#0000ff"
+  background-color-bottom="#00ff00"
+  root-background-color="#ff0000"
+>
+  <navigation-bar
+    title="商品详情"
+    loading
+    front-color="#000000"
+    background-color="#ffff00"
+  ></navigation-bar>
+
+  <view
+    style="width: 100%;height: 100px;background-color: cyan;"
+  >
+  </view>
+</page-meta>

@@ -1,0 +1,26 @@
+<!-- 
+  camera 系统相机。扫描二维码功能。需升级微信客户端至6.7.3。需要用户授权
+
+  mode  应用模式，只在初始化时有效，不能动态修改
+  resolution  分辨率，不支持动态修改，默认为medium  low 低分辨率 medium 中等分辨率 high 高分辨率
+  device-postion 摄像头朝向 front 前置摄像头 back 后置摄像头
+  flash 闪光灯，默认为auto。auto 自动 on 打开 off 关闭 torch 常亮
+  frame-size  指定期望的相机帧数据尺寸，默认为medium。small 小尺寸帧数据 medium 中尺寸帧数据 large 大尺寸帧数据
+  bindstop 摄像头在非正常终止时触发，如退出后台等情况
+  binderror 用户不允许使用摄像头时触发
+  bindinitdone  相机初始化完成时触发
+  bindscancode  在扫码识别成功时触发，仅在mode=scanCode时生效
+
+  同一界面只能插入一个 camera 组件
+ -->
+
+ <view>
+   <camera mode="normal" device-position="{{devicePosition}}" flash="off" style="width: 100%;height: 300px;"></camera>
+   <button type="primary" bindtap="takePhoto">拍照</button>
+   <button type="primary" bindtap="startRecord">开始记录</button>
+   <button type="primary" bindtap="stopRecord">结束记录</button>
+   <button type="primary" bindtap="switchdeviceposition">切换摄像头</button>
+   <text style="display: block;width: 100%;text-align: center;color: brown;padding: 10px;">预览</text>
+   <image src="{{src}}" mode="widthFix" style="width: 100%;"></image>
+   <video wx:if="{{videoPath}}" src="{{videoPath}}" poster="{{thumbPath}}" controls loop autoplay></video>
+ </view>

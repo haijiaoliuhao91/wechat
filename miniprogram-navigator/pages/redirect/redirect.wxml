@@ -1,0 +1,5 @@
+<!--pages/redirect/redirect.wxml-->
+<view>
+  <text>{{title}}</text>
+  <text>点击左上角返回到页面</text>
+</view>

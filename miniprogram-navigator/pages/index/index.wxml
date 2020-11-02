@@ -1,0 +1,49 @@
+<!-- 
+  导航组件
+
+  functional-page-navigator 仅在插件中有效，用于跳转到插件功能页
+  version 跳转到的小程序版本，线上版本必须设置为release
+  name 要跳转到的功能页
+  args 功能页参数，参数格式与具体功能页相关
+  bindsuccess 功能页返回，且操作成功时触发
+  bindfail  功能页返回，且操作失败时触发
+  bindcancel 因用户操作从功能页返回时触发
+
+  version的合法值
+  develop 开发版、trial 体验版 release 正式版
+
+  name的合法值
+  loginAndGetUserInfo 用户信息功能页
+  requestPayment 支付功能页
+  chooseAddress 收货地址功能页
+
+  navigatior 页面链接
+  target     在哪个目标上发生跳转，默认当前小程序 target的合法值 self 当前小程序、miniProgram 其它小程序
+  url        当前小程序内的跳转链接
+  open-type  跳转方式
+  delta      当open-type为"navigateBack"时有效，表示回退的层数
+  app-id     当target="miniProgram"时有效，要打开的小程序appid
+  path       当target="miniProgram"时有效，打开的页面路径，如果为空则打开首页
+  extra-data 当target="miniProgram"时有效，需要传递给目标小程序的数据，目标小程序可以在App.onLaunch()、App.onShow()中获取这份数据
+  version    当target="miniProgram"时有效，要打开的小程序版本
+  hover-class 指定按下去的样式类，当hover-class="none"，默认没有点击态效果
+  hover-stop-propagation 指定是否阻止本节点的祖先节点出现点击态
+  hover-start-time 手指按下多久后出现点击态
+  hover-stay-time 手指松开后点击态保留时间
+  bindsuccess 当target="miniProgram"时有效，表示跳转小程序成功
+  bindfail  当target="miniProgram"时有效，表示跳转小程序失败
+  bindcomplete 当target="miniProgram"时有效，表示跳转小程序完成
+
+  open-type的合法值
+  navigate      对应wx.navigateTo或wx.navigateToMiniProgram的功能
+  redirect      对应wx.redirectTo的功能
+  switchTab     对应wx.switchTab的功能
+  reLaunch      对应wx.reLaunch的功能
+  navigateBack  对应wx.navigateBack的功能
+  exit          退出小程序，target="miniProgram"时有效
+ -->
+
+<view>
+  <navigator url="../navigate/navigate?title=navigate" hover-class="navigator-hover" open-type="navigate">跳转到新页面</navigator>
+  <navigator url="../redirect/redirect?title=redirect" hover-class="other-navigator-hover" open-type="redirect">在当前页打开</navigator>
+</view>

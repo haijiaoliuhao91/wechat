@@ -1,0 +1,9 @@
+/*! 指定按下去的样式类 */
+.navigator-hover {
+  color: red;
+  background-color: transparent;
+}
+
+.other-navigator-hover {
+  color: green;
+}

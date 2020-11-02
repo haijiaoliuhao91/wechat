@@ -1,0 +1,28 @@
+<!-- 
+  navigation-bar 页面导航条配置节点，用于指定导航栏的一些属性。只能是page-meta组件内的第一个节点，需要配合它一同使用
+  通过这个节点可以获得类似于调用 wx.setNavigationBarTitle、wx.setNavigationBarColor 等接口调用的效果
+
+  title 导航条标题
+  loading 是否在导航条显示loading加载提示
+  front-color 导航条前景颜色值，包括按钮、标题、状态栏的颜色，仅支持 #ffffff 和 #000000
+  background-color 导航条背景颜色值，有效值为十六进制颜色
+  color-animation-duration 改变导航条颜色时的动画时长，默认为 0 (即没有动画效果)
+  color-animation-timing-func 改变导航条颜色时的动画方式，支持 linear、easeIn、easeOut、easeInOut
+ -->
+
+ <page-meta>
+  <navigation-bar
+    title="{{title}}"
+    loading="{{loading}}"
+    front-color="{{frontColor}}"
+    background-color="{{backgroundColor}}"
+    color-animation-duration="{{colorAnimationDuration}}"
+    color-animation-timing-func="{{colorAnimationTimingFunc}}"
+  >
+  </navigation-bar>
+ </page-meta>
+
+ <view>
+   <text bindtap="detail">商品详情(wx.navigateTo跳转)</text>
+   <navigator open-type="navigate" url="../detail/detail">商品详情(navigator跳转)</navigator>
+ </view>

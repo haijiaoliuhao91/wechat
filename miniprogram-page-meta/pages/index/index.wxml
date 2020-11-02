@@ -1,0 +1,33 @@
+<!-- 
+  page-meta 页面属性配置节点，用于指定页面的一些属性、监听页面事件。只能是页面内的第一个节点。可以配合navigation-bar组件一同使用
+  通过这个节点可以获得类似于 wx.setBackgroundTextStyle、wx.setBackgroundColor 等接口调用的效果
+
+  background-text-style 下拉背景字体、loading图的样式，仅支持dark 和 light
+  background-color 窗口的背景色，必须为十六进制颜色值
+  background-top-color 顶部窗口的背景色，必须为十六进制颜色值，仅iOS支持
+  background-bottom-color 底部窗口的背景色，必须为十六进制颜色值，仅iOS支持
+  root-background-color 页面内容的背景色，用于页面中的空白部分和页面大小变化 resize 动画期间的临时空闲区域
+  scroll-top 混动位置，可以使用px或者rpx为单位，在被设置时页面会滚动到对应位置
+  scroll-duration 滚动动画时长
+  page-style 页面根节点样式，页面根节点是所有页面节点的祖先节点，相当于HTML中的body节点
+  body-font-size 页面page的字体大小，可以设置为 system，表示使用当前用户设置的微信字体大小
+  page-orientation 页面的方向，可为 auto portrait 或 landscape
+  bindresize 页面尺寸变化时触发 resize 事件
+  bindscroll 页面滚动时触发
+  bindscrolldone 如果通过改变 scroll-top 属性来使页面滚动，页面滚动结束后会触发 scrolldone 事件
+ -->
+
+ <page-meta
+  root-background-color="#ff0000"
+  background-top-color="#00ff00"
+  background-bottom-color="#0000ff"
+  page-style="color: blue;font-size: 20px;text-align: center;margin-top: 20px;text-shadow: 3px 3px 1px green;"
+ >
+  <navigation-bar
+    title="商品列表"
+    background-color="#00ffff"
+    front-color="#000000"
+  />
+  <view>北京上海广州深圳武汉杭州南京</view>
+  <text bindtap="detail">商品详情(wx.navigationTo跳转)</text>
+ </page-meta>

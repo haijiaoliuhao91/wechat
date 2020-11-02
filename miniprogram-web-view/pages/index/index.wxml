@@ -1,0 +1,9 @@
+<!-- 
+  web-view 承载网页的容器。会自动铺满整个小程序页面，个人类型的小程序暂不支持使用
+  客户端6.7.2版本开始，navigatorStyle: custom 对 web-view 组件无效
+
+  src           webview指向网页的链接。可打开关联的公众号的文章，其它网页需要登录小程序管理后台配置业务域名
+  bindmessage   网页向小程序postMessage时，会在特定时机(小程序后退、组件销毁、分享)触发并收到消息
+  bindload      网页加载成功时触发此事件
+  binderror     网页加载失败时触发此事件
+ -->

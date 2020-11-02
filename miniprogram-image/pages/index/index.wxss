@@ -1,0 +1,12 @@
+view {
+  background-color: brown;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+text {
+  display: block;
+  color: white;
+  padding-bottom: 10px;
+}

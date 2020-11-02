@@ -1,0 +1,7 @@
+<!--pages/navigate/navigate.wxml-->
+<view>
+  <text>{{title}}</text>
+  <text>点击左上角返回到之前页面</text>
+  <navigator open-type="navigateBack" delta="1">返回</navigator>
+  <button type="primary" bindtap="back">返回</button>
+</view>

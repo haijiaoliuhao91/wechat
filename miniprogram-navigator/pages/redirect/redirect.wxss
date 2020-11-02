@@ -1,0 +1,13 @@
+/* pages/redirect/redirect.wxss */
+
+view {
+  background-color: brown;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+text {
+  display: block;
+  padding: 10px;
+}

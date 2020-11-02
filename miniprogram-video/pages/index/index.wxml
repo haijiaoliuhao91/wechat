@@ -1,0 +1,103 @@
+<!-- 
+  video           视频，默认宽度是300px、高度225px
+  src             要播放视频的资源地址，支持网络路径、本地临时路径、云文件ID
+  duration        指定视频时长
+  controls        是否显示默认播放控件
+  danmu-list      弹幕列表
+  danmu-btn       是否显示弹幕按钮，只在初始化时有效，不能动态变更
+  enable-danmu    是否展示弹幕，只在初始化时有效，不能动态变更
+  autoplay        是否自动播放
+  loop            是否循环播放
+  muted           是否静音播放
+  initial-time    指定视频初始播放位置
+  vslide-gesture  在非全屏模式下，是否开启亮度与音量调节手势
+  vslide-gesture-in-fullscreen  在全屏模式下，是否开启亮度与音量调节手势
+  direction       设置全屏时视频的方向，不指定则根据宽高比自动判断
+  show-progress   若不设置，宽度大于240时才会显示
+  show-fullscreen-btn 是否显示全屏按钮
+  show-play-btn   是否显示视频底部控制栏的播放按钮
+  show-center-play-btn  是否显示视频中间的播放按钮
+  enable-progress-gesture 是否开启控制进度的手势
+  object-fit      视频大小与video容器大小不一致时，视频的表现形式: contain 包含 fill 填充 cover 覆盖
+  poster 视频封面
+  show-mute-btn  是否显示静音按钮
+  title 视频标题，全屏时在顶部展示
+  play-btn-position 播放按钮的位置，默认bottom center 视频中间 bottom controls bar上
+  enable-paly-gesture 是否开启播放手势，即双击切换播放/暂停
+  auto-pause-if-navigate 当跳转到本小程序的其他页面时，是否自动暂停本页面的视频播放
+  auto-pause-if-open-native 当跳转到其他微信原生页面时，是否自动暂停本页面的视频
+  ad-unit-id 视频前贴广告单元id
+  poster-for-crawler  用于给搜索等场景作为视频封面展示，建议使用无播放icon的视频封面图，只支持网络地址
+  show-casting-button 显示投屏按钮。安卓在同层渲染下生效，支持DLNS协议；iOS支持AirPlay和DLNA协议
+  picture-in-picture-mode 设置小窗模式：push，pop 空字符串或通过数组形式设置多种模式，如["push", "pop"]。[] 取消小窗、 push 路由push时触发小窗、pop 路由pop时触发小窗
+  picture-in-picture-show-progress 是否在小窗模式下显示播放进度
+  enable-auto-rotation 是否开启手机横屏时自动全屏，当系统设置开启自动旋转时生效
+  show-screen-lock-button 是否显示锁屏按钮，仅在全屏时显示，锁屏后控制栏的操作
+  show-snapshot-button  是否显示截屏按钮，仅在全屏时有效
+
+  bindplay 开始/继续播放时触发
+  bindpause 暂停播放时触发
+  bindended 播放到末尾时触发
+  bindtimeupdate 播放进度变化时触发
+  bindfullscreenchange 视频进入和退出全屏时触发
+  bindwaiting 视频出现缓冲时触发
+  binderror 视频播放出错时触发
+  bindprogress 加载进度变化时触发，只支持一段加载
+  bindloadedmetadata 视频元数据加载完毕时触发
+  bindcontrolstoggle  切换controls显示隐藏时触发
+  bindenterpictureinpicture 播放器进入小窗时触发
+  bindleavepictureinpicture 播放器退出小窗时触发
+  bindseekcomplete seek完成时触发(position iOS单位s，Android单位ms)
+ -->
+
+ <view>
+  <video 
+    id="myvideo"
+    src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" 
+    controls 
+    loop 
+    autoplay="{{false}}"
+    enable-danmu
+    danmu-list="{{danmuList}}"
+    danmu-btn
+    initial-time="10"
+    vslide-gesture
+    vslide-gesture-in-fullscreen
+    show-fullscreen-btn
+    show-play-btn
+    show-center-play-btn
+    enable-progress-gesture="{{false}}"
+    show-mute-btn
+    play-btn-position="center"
+    enable-play-gesture
+    title="you are the best"
+    auto-pause-if-navigate="{{false}}"
+    auto-pause-if-open-native="{{false}}"
+    show-casting-button
+    picture-in-picture-mode="push"
+    enable-auto-rotation
+    show-screen-lock-button
+    show-snapshot-button
+    bindplay="bindplay"
+    bindpause="bindpause"
+    bindended="bindended"
+    bindtimeupdate="bindtimeupdate"
+    bindfullscreenchange="bindfullscreenchange"
+    bindwaiting="bindwaiting"
+    binderror="binderror"
+    bindprogress="bindprogress"
+    bindloadedmetadata="bindloadedmetadata"
+    bindcontrolstoggle="bindcontrolstoggle"
+    bindenterpictureinpicture="bindenterpictureinpicture"
+    bindleavepictureinpicture="bindleavepictureinpicture"
+    bindseekcomplete="bindseekcomplete"
+  ></video>
+ </view>
+
+ <view>
+  <text>弹幕内容</text>
+  <input type="text" placeholder="在此出入弹幕" bindblur="bindblur" />
+  <button type="primary" bindtap="senddanmu">发送弹幕</button>
+  <button type="primary" open-type="openSetting">openSetting</button>
+ </view>
+
