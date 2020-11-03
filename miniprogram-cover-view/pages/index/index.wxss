@@ -1,0 +1,28 @@
+.cover-view {
+  position: absolute;
+  top: calc(50% - 150rpx);
+  left: calc(50% - 300rpx);
+}
+
+.flex-wrp {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+}
+
+.flex-item {
+  width: 200rpx;
+  height: 300rpx;
+}
+
+.flex-item-view1 {
+  background: rgba(26, 173, 25, 0.7)
+}
+
+.flex-item-view2 {
+  background: rgba(39, 130, 215, 0.7)
+}
+
+.flex-item-view3 {
+  background: rgba(255, 255, 255, 0.7)
+}

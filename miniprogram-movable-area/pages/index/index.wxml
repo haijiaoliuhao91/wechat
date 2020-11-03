@@ -1,0 +1,89 @@
+<!-- 
+  movable-area    movable-view的可移动区域
+  scale-area      当里面的movable-view设置为支持双指缩放时，设置此值可以将缩放手势生效区域修改为整个movable-area
+
+  movable-view    可移动的视图容器，在页面中可以拖拽滑动。movable-view 必须在 movable-area 组件中，并且必须是直接节点，否则不能移动
+
+  direction       movable-view的移动方向，属性值有all、vertical、horizontal、none，默认值为none
+  inertia         movable-view是否带有惯性
+  out-of-bounds   超出可移动区域后，movable-view是否还可以移动
+  x               定义x轴方向的偏移，如果x的值不在可移动范围内，会自动移动到可移动范围；改变x的值会触发动画
+  y               定义y轴方向的偏移，如果y的值不在可移动范围内，会自动移动到可移动范围；改变y的值会触发动画
+  damping         阻尼系数，用于控制x或y改变时的动画和过界回弹的动画，值越大，移动越快
+  friction        摩擦系数，用于控制惯性回弹的动画，值越大摩擦力越大，滑动越快停止；必须大于0，否则会被设置成默认值(2)
+  disabled        是否禁用
+  scale           是否支持双指缩放，默认缩放手势生效区域是在movable-view内
+  scale-min       设置最小缩放倍数，默认值为0.5
+  scale-max       设置最大缩放倍数，默认值为10
+  scale-value     设置缩放倍数，取值范围为0.5-10
+  animation       是否使用动画
+  bindchange      拖动过程中触发的事件
+  bindscale       缩放过程中触发的事件
+  htouchmove      初次手指触摸后移动方向为横向的移动时触发，如果 catch 此事件，则意味着 touchmove 事件也被 catch
+  vtouchmove      初次手指触摸后移动方向为纵向的移动时触发，如果 catch 此事件，则意味着 touchmove 事件也被 catch
+
+  bindchange 返回的 source 表示产生移动的原因
+  touch           拖动
+  touch-out-of-bounds 超出移动范围
+  out-of-bounds   超出移动范围后的回弹
+  firction        惯性
+  空字符串         setData
+
+  movable-view 必须设置 width 和 height 属性，不设置默认为 10px
+  movable-view 默认为绝对定位，top 和 left 属性为 0px
+  movable-area 必须设置 width 和 height 属性，不设置默认为 10px
+  当movable-view 小于 movable-area 时，movable-view 的移动范围是在 movable-area 内
+  当movable-view 大于 movable-area 时，movable-view 的移动范围必须包含 movable-area(x轴方向和y轴方向分开考虑)
+
+ -->
+
+<view>
+  <text>当movable-view小于movable-area时，movable-view的可移动范围是在movable-area内</text>
+  <movable-area>
+    <movable-view direction="all" x="{{x}}" y="{{y}}" animation>text</movable-view>
+  </movable-area>
+  <view style="background-color: green; padding: 10px;color: white;text-align: center;margin-bottom: 10px;" bindtap="move">点击移动到(30px, 30px)</view>
+</view>
+
+<view>
+  <text>当movable-view大于movable-area时，movable-view的可移动范围必须包含movable-area(x轴方向和y轴方向分开考虑)</text>
+  <movable-area>
+    <movable-view class="max" direction="all">text</movable-view>
+  </movable-area>
+</view>
+
+<view>
+  <text>只可以横向移动</text>
+  <movable-area>
+    <movable-view direction="horizontal">text</movable-view>
+  </movable-area>
+</view>
+
+<view>
+  <text>只可以竖向移动</text>
+  <movable-area>
+    <movable-view direction="vertical" inertia>text</movable-view>
+  </movable-area>
+</view>
+
+<view>
+  <text>可超出边界，out-of-bounds 超过可移动区域后，movable-view是否还可以移动</text>
+  <movable-area>
+    <movable-view direction="all" out-of-bounds>text</movable-view>
+  </movable-area>
+</view>
+
+<view>
+  <text>带有惯性(inertia)</text>
+  <movable-area>
+    <movable-view direction="all" inertia>text</movable-view>
+  </movable-area>
+</view>
+
+<view>
+  <text>可缩放</text>
+  <movable-area>
+    <movable-view direction="all" scale scale-min="0.5" scale-max="10" scale-value="{{scale}}" bindchange="bindchange" bindscale="bindscale">text</movable-view>
+  </movable-area>
+  <view style="background-color: green;padding: 10px;color: white;text-align: center;" bindtap="scale">点击放大3倍</view>
+</view>

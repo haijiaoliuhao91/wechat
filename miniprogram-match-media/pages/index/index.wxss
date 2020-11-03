@@ -1,0 +1,8 @@
+view {
+  background-color: brown;
+  width: 100%;
+  height: 300px;
+  color: white;
+  line-height: 300px;
+  text-align: center;
+}

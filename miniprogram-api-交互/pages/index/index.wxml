@@ -1,0 +1,113 @@
+<!-- 
+  wx.showToast(Object object) 显示消息提示框
+  Object object参数
+  title 提示的内容
+  icon  图标
+  image 自定义图标的本地路径，image的优先级高于icon
+  duration  提示的延迟时间，默认1500ms
+  mask  是否显示透明蒙层，防止触摸穿透
+  success 接口调用成功的回调函数
+  fail  接口调用失败的回调函数
+  complete  接口调用完成的回调函数(调用成功、失败都会执行)
+
+  object.icon 的合法值
+  success 显示成功图标，此时 title 文本最多显示7个汉字长度
+  loading 显示加载图标，此时 title 文本最多显示7个汉字长度
+  none  不显示图标，此时 title 文本最多可显示两行     
+
+  wx.hideToast(Object object) 隐藏消息提示框
+  success 接口调用成功的回调函数
+  fail  接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、失败都会执行)  
+
+  ----------------------------------------------------------------------------------------------------------------------
+
+  wx.showModal(Object object) 显示模态对话框
+  Object object参数
+  title 提示的标题
+  content 提示的内容
+  showCancel  是否显示取消按钮
+  cancelText  取消按钮的文字，最多4个字符
+  cancelColor 取消按钮的文字颜色，必须是十六进制格式的颜色字符串
+  confirmText 确认按钮的文字，最多4个字符
+  confirmColor  确认按钮的文字颜色，必须是十六进制格式的颜色字符串
+  success 接口调用成功的回调函数
+  fail  接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  confirm 为true时，表示用户点击了确定按钮
+  cancel  为true时，表示用户点击了取消(用于Android系统区分点击蒙层关闭还是点击取消按钮关闭)
+
+  -------------------------------------------------------------------------------------------
+
+  wx.showLoading(Object object) 显示loading提示框，需主动调用wx.hideLoading才能关闭提示框
+  Object.object参数
+  title 提示的内容
+  mask 是否显示透明蒙层，防止触摸穿透
+  success 接口调用成功的回调函数
+  fail 接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  wx.hideLoading(Object object)
+  Object.object参数
+  success 接口调用成功的回调函数
+  fail 接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------
+
+  wx.showActionSheet(Object object) 显示操作菜单
+  Object.object 参数
+  itemList  按钮的文字数组，数组长度最大为6
+  itemColor 按钮的文字颜色
+  success 接口调用成功的回调函数
+  fail 接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  tapIndex 用户点击的按钮序号，从上到下的顺序，从0开始
+
+  --------------------------------------------------------------------------------------------------
+
+  wx.enableAlertBeforeUnload(Object object) 开启小程序页面返回询问对话框
+  Object.object参数
+  message 询问对话框内容
+  success 接口调用成功的回调函数
+  fail 接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  wx.disableAlertBeforeUnload(Object object) 关闭小程序页面返回询问对话框
+  Object.object参数
+  success 接口调用成功的回调函数
+  fail 接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+ -->
+
+ <view>
+  <text>toast</text>
+  <button type="primary" bindtap="showToast">showToast</button>
+  <button type="primary" bindtap="hideToast">hideToast</button>
+ </view>
+
+ <view>
+  <text>modal</text>
+  <button type="primary" bindtap="showModal">showModal</button>
+ </view>
+
+ <view>
+  <text>loading</text>
+  <button type="primary" bindtap="showLoading">showLoading</button>
+  <button type="primary" bindtap="hideLoading">hideLoading</button>
+ </view>
+
+ <view>
+  <text>actionSheet</text>
+  <button type="primary" bindtap="showActionSheet">showActionSheet</button>
+ </view>
+
+ <view>
+  <text>跳转页面</text>
+  <navigator open-type="navigate" url="../detail/detail" hover-class="none">detail</navigator>
+  <button type="primary" bindtap="detail">wx.navigateTo跳转页面</button>
+ </view>

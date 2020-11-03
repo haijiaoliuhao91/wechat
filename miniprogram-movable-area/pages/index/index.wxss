@@ -1,0 +1,29 @@
+text {
+  padding: 10px;
+  background-color: yellowgreen;
+  display: block;
+  color: white;
+}
+
+movable-area {
+  width: 400rpx;
+  height: 400rpx;
+  background-color: #ccc;
+  margin: 50rpx;
+  overflow: hidden;
+}
+
+movable-view {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #1AAD19;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.max {
+  width: 600rpx;
+  height: 600rpx;
+}

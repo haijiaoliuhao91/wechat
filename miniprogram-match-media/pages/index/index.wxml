@@ -1,0 +1,19 @@
+<!-- 
+  match-media  匹配检测节点。可以指定一组 media query 规则，满足时，这个节点才会被展示。通过这个节点可以实现"页面宽高在某个范围时才展示某个区域"这样的效果
+
+  min-width     页面最小宽度(px单位)
+  max-width     页面最大宽度(px单位)
+  width         页面宽度(px单位)
+  min-height    页面最小高度(px单位)
+  max-height    页面最大高度(px单位)
+  height        页面高度(px单位)
+  orientation   屏幕方向(landscape 或 portrait)
+ -->
+
+ <match-media min-width="320" max-width="375">
+  <view>1</view>
+ </match-media>
+
+ <match-media min-width="375" max-width="414">
+  <view>2</view>
+ </match-media>

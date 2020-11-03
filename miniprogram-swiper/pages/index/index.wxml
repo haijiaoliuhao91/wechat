@@ -1,0 +1,82 @@
+<!-- 
+  swiper                  滑块视图容器。其中只可放置swiper-item组件，否则会导致未定义的行为
+
+  indicator-dots          是否显示面板指示点
+  indicator-color         指示点颜色
+  indicator-active-color  当前选中的指示点颜色
+  autoplay                是否自动切换
+  current                 当前所在滑块的index
+  interval                自动切换时间间隔
+  duration                滑动动画时长
+  circular                是否采用衔接滑动
+  vertical                滑动方向是否为纵向
+  previous-margin         前边距，可用于露出前一项的一小部分，接受px和rpx值
+  next-margin             后边距，可用于露出后一项的一小部分，接受px和rpx值
+  snap-to-edge            当swiper-item的个数大于等于2，关闭circular并且开启previous-margin或next-margin的时候，可以指定这个边距是否应用到第一个、最后一个元素
+  display-multiple-items  同时显示的滑块数量
+  easing-function         指定swiper切换缓动动画类型
+  bindchange              current改变时会触发change事件
+  bindtransition          swiper-item的位置发生改变时会触发transition事件
+  bindanimationfinish     动画结束时会触发animationfinish事件
+
+  easing-function的合法值
+  default                 默认缓动函数
+  linear                  线性动画
+  easeInCubic             缓入动画
+  easeOutCubic            缓出动画
+  easeInOutCubic          缓入缓出动画
+
+  swiper-item 仅可放置在swiper组件中，宽高自动设置为100%
+  item-id                 该swiper-item的标识符
+  skip-hidden-item-layout 是否跳过未显示的滑块布局，设为true可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息
+ -->
+
+<page-meta
+ root-background-color="#FE4B52"
+>
+<navigation-bar
+ title="swiper"
+ fornt-color="#ffffff"
+ background-color="#0000ff"
+/>
+
+<swiper
+ indicator-dots
+ indicator-color="white"
+ indicator-active-color="red"
+ autoplay
+ interval="3000"
+ circular
+ previous-margin="10px"
+ next-margin="10px"
+ display-multiple-items="1"
+ easing-function="easeInOutCubic"
+ bindchange="bindchange"
+ bindtransition="bindtransition"
+>
+  <swiper-item style="background-color: green;">1</swiper-item>
+  <swiper-item style="background-color: blue;">2</swiper-item>
+  <swiper-item style="background-color: cyan;">3</swiper-item>
+  <swiper-item style="background-color: brown;">4</swiper-item>
+</swiper>
+
+<view style="margin-top: 20px;"></view>
+
+<swiper
+  indicator-dots
+  indicator-color="white"
+  indicator-active-color="yellow"
+  autoplay
+  circular
+  interval="2000"
+  vertical
+  easing-function="easeInOutCubic"
+  bindanimationfinish="bindanimationfinish"
+>
+  <swiper-item style="background-color: brown;">1</swiper-item>
+  <swiper-item style="background-color: green;">2</swiper-item>
+  <swiper-item style="background-color: red;">3</swiper-item>
+  <swiper-item style="background-color: blue;">4</swiper-item>
+</swiper>
+
+</page-meta>

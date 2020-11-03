@@ -1,0 +1,35 @@
+<!-- 
+  cover-view 覆盖在原生组件之上的文本视图
+  可覆盖的原生组件包括 map、video、canvas、camera、live-player、live-pusher
+  只支持嵌套 cover-view、cover-image，可在 cover-view 中使用button。
+
+  scroll-top 设置顶部滚动偏移量，仅在设置了 overflow-y: scroll 成为滚动元素后生效
+ -->
+
+<page-meta
+ background-color-top="#00FF00"
+ background-color-bottom="#0000FF"
+ root-background-color="#FE3B22"
+>
+  <navigation-bar
+    title="cover-view"
+    front-color="#FFFFFF"
+    background-color="#FDA354"
+  />
+  <view>
+    <map
+      style="width: 100%;height: 300px;"
+      longitude="{{ longitude }}"
+      latitude="{{ latitude }}"
+      scale="18"
+    >
+      <cover-view class="cover-view">
+        <cover-view class="flex-wrp">
+          <cover-view class="flex-item flex-item-view1"></cover-view>
+          <cover-view class="flex-item flex-item-view2"></cover-view>
+          <cover-view class="flex-item flex-item-view3"></cover-view>
+        </cover-view>
+      </cover-view>
+    </map>
+  </view>
+</page-meta>

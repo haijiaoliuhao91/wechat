@@ -1,0 +1,24 @@
+<!-- 
+  cover-image 覆盖在原生组件之上的图片视图。可覆盖的原生组件同 cover-view，支持嵌套在 cover-view 里
+
+  src       图片路径，支持临时路径、网络地址
+  bindload  图片加载成功时触发
+  binderror 图片加载失败时触发
+
+  支持的图片格式 JPG、PNG、WEBP、GIF
+ -->
+
+<page-meta>
+  <navigation-bar
+    title="cover-image"
+    background-color="#FE3B22"
+    front-color="#FFFFFF"
+  />
+  <map
+    style="width: 100%;height: 300px;"
+    longitude="{{longitude}}"
+    latitude="{{latitude}}"
+  >
+    <cover-image src="{{img}}" bindload="bindload" binderror="binderror"></cover-image>
+  </map>
+</page-meta>
