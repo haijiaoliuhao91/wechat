@@ -1,0 +1,124 @@
+<!-- 
+  wx.showTabBarRedDot(Object object)    显示tabBar某一项的右上角的红点
+  Object.object参数
+  index       tabBar的哪一项，从左边算起
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  wx.hideTabBarRedDot(Object object)    隐藏tabBar某一项的右上角的红点
+  Object.object参数
+  index       tabBar的哪一项，从左边算起
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  --------------------------------------------------------------------------------------------------------
+
+  wx.showTabBar(Object object)        显示tabBar
+  Object.object参数
+  animation   是否需要动画效果
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  wx.hideTabBar(Object object)        隐藏tabBar
+  Object.object参数
+  animation   是否需要动画
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  ------------------------------------------------------------------------------------------------------
+
+  wx.setTabBarStyle(Object object)    动态设置tabBar的整体样式
+  Object.object参数
+  color           tab上的文字默认颜色，HexColor
+  selectedColor   tab上的文字选中时的颜色，HexColor
+  backgroundColor tab的背景色，HexColor
+  borderStyle     tabBar上边框的颜色，仅支持black/white
+  success         接口调用成功的回调函数
+  fail            接口调用失败的回调函数
+  complete        接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------
+
+  wx.setTabBarItem(Object object)     动态设置tabBar某一项的内容
+  Object.object参数
+  index               tabBar的哪一项，从左边算起
+  text                tab上的按钮文字
+  iconPath            默认的图片路径，icon大小限制为40kb，建议尺寸为81px*81px，当position为top时，此参数无效
+  selectedIconPath    选中时的图片路径，icon大小限制为40kb，建议尺寸为81px*81px，当position为top时，此参数无效
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+--------------------------------------------------------------------------------------------------------
+
+  wx.setTabBarBadge(Object object)      为tabBar某一项的右上角添加文本
+  Object.object参数
+  index                tabBar的哪一项，从左边算起
+  text                 显示的文本，超过4个字符则显示成...
+  success              接口调用成功的回调
+  fail                 接口调用失败的回调
+  complete             接口调用完成的回调(调用成功、调用失败都会执行)
+
+  wx.removeTabBarBadge(Object object)   移除tabBar某一项右上角的文本
+  Object.object参数
+  index                tabBar的哪一项，从左边算起
+  success              接口调用成功的回调函数
+  fail                 接口调用失败的回调函数
+  complete             接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+-->
+
+ <page-meta
+  background-color-top="#00ffff"
+  background-color-bottom="#ff00ff"
+ >
+  <navigation-bar
+    title="首页"
+    front-color="#ffffff"
+    background-color="#d4237a"
+  />
+
+  <view>
+    <text>显示tabBar小红点</text>
+    <button type="primary" bindtap="showTabBarRedDot">showTabBarRedDot</button>
+  </view>
+
+  <view>
+    <text>隐藏tabBar小红点</text>
+    <button type="primary" bindtap="hideTabBarRedDot">hideTabBarRedDot</button>
+  </view>
+
+  <view>
+    <text>显示tabBar</text>
+    <button type="primary" bindtap="showTabBar">showTabBar</button>
+  </view>
+
+  <view>
+    <text>显示tabBar</text>
+    <button type="primary" bindtap="hideTabBar">hideTabBar</button>
+  </view>
+
+  <view>
+    <text>动态设置tabBar的整体样式</text>
+    <button type="primary" bindtap="setTabBarStyle">setTabBarStyle</button>
+  </view>
+
+  <view>
+    <text>动态设置tabBar某一项的内容</text>
+    <button type="primary" bindtap="setTabBarItem">setTabBarItem</button>
+  </view>
+
+  <view>
+    <text>为tabBar某一项的右上角添加文本</text>
+    <button type="primary" bindtap="setTabBarBadge">setTabBarBadge</button>
+  </view>
+
+  <view>
+    <text>移除tabBar某一项右上角的文本</text>
+    <button type="primary" bindtap="removeTabBarBadge">removeTabBarBadge</button>
+  </view>
+ </page-meta>

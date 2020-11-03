@@ -1,0 +1,24 @@
+<!-- 
+  wx.setBackgroundTextStyle(Object object) 动态设置下拉背景字体、loading图的样式
+  Object.object参数
+  textStyle   下拉背景字体、loading图的样式
+  success 接口调用成功的回调
+  fail 接口调用失败的回调
+  complete 接口调用完成的回调(调用成功、调用失败都会执行)
+
+  object.textStyle的合法值
+  dark dark样式
+  light light样式
+
+  -----------------------------------------------------------------------------------------------------
+
+  wx.setBackgrounColor(Object object) 动态设置窗口的背景色
+  Object.object参数
+  backgroundColor         窗口的背景色，必须为16进制颜色值
+  backgroundColorTop      顶部窗口的背景色，必须为16进制颜色值，仅iOS支持
+  backgroundColorBottom   底部窗口的背景色，必须为16进制颜色值，仅iOS支持
+  success 接口调用成功的回调函数
+  fail  接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+ -->

@@ -1,0 +1,71 @@
+<!-- 
+  wx.showNavigationBarLoading(Object object) 在当前页面显示导航条加载动画
+  Object.object参数
+  success 接口调用成功的回调函数
+  fail 接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  wx.hideNavigationBarLoading(Object object) 在当前页面隐藏导航条加载动画
+  Object.object参数
+  success 接口调用成功的回调函数
+  fail  接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------
+
+  wx.setNavigationBarTitle(Object object) 动态设置当前页面的标题
+  Object.object参数
+  title 页面标题
+  success 接口调用成功的回调函数
+  fail 接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  --------------------------------------------------------------------------------------------------------
+
+  wx.setNavigationBarColor(Object object) 设置页面导航条颜色
+  Object.object参数
+  frontColor        前景颜色值，包括按钮、标题、状态栏的颜色，仅支持#ffffff和#000000
+  backgroundColor   背景颜色值，有效值为十六进制颜色
+  animation         动画效果
+  success           接口调用成功的回调函数
+  fail              接口调用失败的回调函数
+  complete          接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.animation的结构
+  duration          动画变化时间，单位是ms
+  timingFunc        动画变化方式
+
+  object.animation.timingFunc的合法值
+  linear            动画从头到尾的速度是相同的
+  easeIn            动画以低速开始
+  easeOut           动画以低速结束
+  easeInOut         动画以低速开始和结束
+
+  ------------------------------------------------------------------------------------------------------
+
+  wx.hideHomeButton(Object object)
+  隐藏返回首页按钮。微信7.0.7版本开始，当用户打开的小程序最底层是非首页时，默认展示"返回首页"按钮，可在页面onShow中调用hideHomeButton进行隐藏
+  Object.object参数
+  success 接口调用成功的回调函数
+  fail 接口调用失败的回调函数
+  complete 接口调用完成的回调函数(调用成功、调用失败都会执行)
+-->
+
+ <page-meta
+  root-background-color="#00ffff"
+ >
+ <view>
+   <text>title</text>
+   <button type="primary" bindtap="changeTitle">changTitle</button>
+ </view>
+
+ <view>
+   <text>设置页面导航条颜色</text>
+   <button type="primary" bindtap="setNavigationBarColor">设置页面导航条颜色</button>
+ </view>
+
+ <view>
+   <text>detail</text>
+   <button type="primary" bindtap="detail">detail</button>
+ </view>
+ </page-meta>
