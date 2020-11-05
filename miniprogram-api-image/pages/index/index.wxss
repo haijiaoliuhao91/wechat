@@ -1,0 +1,21 @@
+text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: brown;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+button {
+  display: block;
+  width: 100% !important;
+}
+
+.image-list {
+  float: left;
+  width: 250rpx;
+  height: 250rpx;
+  background-color: rgb(216, 38, 83);
+}

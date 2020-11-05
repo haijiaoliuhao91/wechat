@@ -1,0 +1,189 @@
+<!-- 
+  wx.saveImageToPhotosAlbum(Object object)  保存图片到系统相册
+  Object.object参数
+  filePath    图片文件路径，可以是临时文件路径或永久文件路径(本地路径)，不支持网络路径
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  ---------------------------------------------------------------------------------------------------
+
+  wx.previewMedia(Object object, boolean showmenu)  预览图片和视频
+  Object.object参数
+  sources     需要预览的资源列表
+  current     当前显示的资源序号
+  success     接口调用完成的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.source的结构
+  url         图片或视频的地址
+  type        资源的类型，默认为图片
+  poster      视频的封面图片
+
+  type的合法值
+  image       图片
+  video       视频
+
+  boolean showmenu  是否显示长按菜单
+
+  ----------------------------------------------------------------------------------------------------
+
+  wx.previewImage(Object object, boolean showmenu)  在新页面中全屏预览图片。预览的过程中用户可以进行保存图片、发送给朋友等操作
+  Object.object参数
+  urls         需要预览的图片链接列表
+  current      当前显示图片的链接
+  success      接口调用成功的回调函数
+  fail         接口调用失败的回调函数
+  complete     接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  ----------------------------------------------------------------------------------------------------
+
+  wx.getImageInfo(Object object)  获取图片信息。网络图片需先配置download域名才能生效
+  Object.object参数
+  src          图片的路径，支持网络路径、本地路径、代码包路径
+  success      接口调用成功的回调函数
+  fail         接口调用失败的回调函数
+  complete     接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  width        图片原始宽度，单位px。不考虑旋转
+  height       图片原始高度，单位px。不考虑旋转
+  path         图片的本地路径
+  orientation  拍照时设备方向
+  type         图片格式
+
+  orientation的合法值
+  up              默认方向(手机横持拍照)，对应Exif中的1.或无 orientation 信息
+  up-mirrored     同up，但镜像翻转，对应Exif中的2
+  down            旋转180度，对应Exif中的3
+  down-mirrored   同down，但镜像翻转，对应Exif中的4
+  left-mirrored   同left，但镜像翻转，对应Exif中的5
+  right           顺时针旋转90度，对应Exif中的6
+  right-mirrored  同right，但镜像翻转，对应Exif中的7
+  left            逆时针旋转90度，对应Exif中的8
+
+  ----------------------------------------------------------------------------------------------------
+
+  wx.compressImage(Object object) 压缩图片接口，可选压缩质量
+  Object.object参数
+  src             图片路径，图片的路径，支持本地路径、代码包路径
+  quality         压缩质量，范围0~100，数值越小，质量越低，压缩率越高(仅对jpg有效)
+  success         接口调用成功的回调函数
+  fail            接口调用失败的回调函数
+  complete        接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  tempFilePath    压缩后图片的临时文件路径(本地路径)
+
+  ----------------------------------------------------------------------------------------------------
+
+  wx.chooseImage(Object object) 从本地相册选择图片或使用相机拍照
+  Object.object参数
+  count           最多可以选择的图片张数，默认值9
+  sizeType        所选的图片的尺寸
+  sourceType      选择图片的来源
+  success         接口调用成功的回调函数
+  fail            接口调用失败的回调函数
+  complete        接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.sizeType的合法值
+  original        原图
+  compressed      压缩图
+
+  object.sourceType的合法值
+  album           从相册选图
+  camera          使用相机
+
+  object.success回调函数
+  tempFilePaths   图片的本地临时文件路径列表(本地路径)
+  tempFiles       图片的本地临时文件列表
+
+  res.tempFiles的结构
+  path            本地临时文件路径(本地路径)
+  size            本地临时文件大小，单位为B
+
+  -------------------------------------------------------------------------------------------------
+
+  wx.chooseMessageFile(Object object) 从客户端会话选择文件
+  Object.object参数
+  count           最多可以选择的文件个数
+  type            所选的文件的类型
+  extension       根据文件扩展名过滤，仅type==file时有效。每一项都不能是空字符串。默认不过滤
+  success         接口调用成功的回调函数
+  fail            接口调用失败的回调函数
+  complete        接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.type的合法值
+  all             从所有文件选择
+  video           只能选择视频文件
+  image           只能选择图片文件
+  file            可以选择除了图片和视频之外的其它的文件
+
+  object.success回调函数
+  Object res
+  tempFiles       返回选择的文件的本地临时文件对象数组
+
+  res.tempFiles
+  path            本地临时文件路径(本地路径)
+  size            本地临时文件大小，单位B
+  name            选择的文件名称
+  type            选择的文件类型
+  time            选择的文件的会话发送时间，Unix时间戳，工具暂不支持属性
+
+  type的合法值
+  video           选择了视频文件
+  image           选择了图片文件
+  file            选择了除图片和视频的文件
+
+ -->
+
+ <page-meta
+  root-background-color="#ffffff"
+ >
+  <navigation-bar
+    title="image"
+    front-color="#ffffff"
+    background-color="#fe4b52"
+  />
+
+  <view>
+    <text>保存图片到系统相册</text>
+    <button type="primary" bindtap="saveImageToPhotosAlbum">saveImageToPhotosAlbum</button>
+  </view>
+
+  <view>
+    <text>通过previewMedia预览图片和视频</text>
+    <button type="primary" bindtap="previewMedia">previewMedia</button>
+  </view>
+
+  <view>
+    <text>在新页面中全屏预览图片。预览的过程中用户可以进行保存图片、发送给好友等操作</text>
+    <button type="primary" bindtap="previewImage">previewImage</button>
+  </view>
+
+  <view>
+    <text>获取图片信息</text>
+    <button type="primary" bindtap="getImageInfo">getImageInfo</button>
+  </view>
+
+  <view>
+    <text>压缩图片，可选压缩质量</text>
+    <button type="primary" bindtap="compressImage">compressImage</button>
+    <image src="{{tempFilePath}}" mode="widthFit" style="width: 100%;" />
+  </view>
+
+  <view>
+    <text>从本地相册选择图片或使用相机拍照</text>
+    <button type="primary"  bindtap="chooseImage">chooseImage</button>
+    <block wx:for="{{imageList}}" wx:key="index">
+      <image class="image-list" src="{{item}}" mode="scaleToFill" data-index="{{index}}" bindtap="imageClick" />
+    </block>
+  </view>
+
+  <view>
+    <text>从客户端会话选择文件</text>
+    <button type="primary" bindtap="chooseMessageFile">chooseMessageFile</button>
+  </view>
+
+ </page-meta>
