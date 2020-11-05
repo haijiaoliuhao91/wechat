@@ -1,0 +1,29 @@
+<!-- 
+  wx.startPullDownRefresh(Object object)  开始下拉刷新。调用后触发下拉刷新动画，效果与用户手动下拉刷新一致
+  Object.object参数
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -----------------------------------------------------------------------------------------------
+
+  wx.stopPullDownRefresh(Object object)   停止当前页面下拉刷新
+  Object.object参数
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+-->
+
+<page-meta
+  root-background-color="#ffff00"
+>
+  <view>
+    <text>开始下拉刷新</text>
+    <button type="primary" bindtap="startPullDownRefresh">startPullDownRefresh</button>
+  </view>
+
+  <view>
+    <text>停止当前页面的下拉刷新</text>
+    <button type="primary" bindtap="stopPullDownRefresh">stopPullDownRefresh</button>
+  </view>
+</page-meta>

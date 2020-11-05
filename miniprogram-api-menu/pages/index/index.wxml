@@ -1,0 +1,18 @@
+<!-- 
+  Object wx.getMenuButtonBoundingClientRect() 获取菜单按钮(屏幕右上角胶囊按钮)的布局位置信息。坐标信息以屏幕左上角为原点
+
+  菜单按钮(屏幕右上角胶囊按钮)的布局位置信息
+  width     宽度，单位：px
+  height    高度，单位：px
+  top       上边界坐标，单位：px
+  bottom    下边界坐标，单位：px
+  left      左边界坐标，单位：px
+  right     右边界坐标，单位：px
+ -->
+
+ <page-meta
+  root-background-color="#ffff00"
+  background-color-top="#ff0000"
+  background-color-bottom="#00ffff"
+ >
+ </page-meta>

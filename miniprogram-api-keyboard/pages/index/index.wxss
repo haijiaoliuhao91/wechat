@@ -1,0 +1,13 @@
+text {
+  display: block;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px 0;
+  color: brown;
+}
+
+button {
+  display: block;
+  width: 100% !important;
+}

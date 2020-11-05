@@ -1,0 +1,70 @@
+<!-- 
+  wx.onKeyboardHeightChange(function callback)  监听键盘高度变化
+  参数 function callback 参数 Object res height 键盘高度
+
+  wx.offKeyboardHeightChange(function callback) 取消监听键盘高度变化
+  
+  ---------------------------------------------------------------------------------------------------
+
+  wx.hideKeyboard(Object object)  在input、textarea等focus拉起键盘之后，手动调用此接口收起键盘
+  Object.object参数
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  ---------------------------------------------------------------------------------------------------
+
+  wx.getSelectedTextRange(Object object)    在input、textarea等focus之后，获取输入框的光标位置。注意：只有在focus的时候调用此接口才有效
+  Object.object参数
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  start       输入框光标起始位置
+  end         输入框光标结束位置
+ -->
+
+ <page-meta
+ >
+  <navigation-bar
+    title="keyboard"
+    front-color="#ffffff"
+    background-color="#fe4b52"
+  />
+
+  <input 
+    type="number" 
+    placeholder="请输入手机号码"
+    adjust-position
+    hold-keyboard
+    confirm-hold
+    bindinput="bindinput"
+    bindfocus="bindfocus"
+    bindblur="bindblur"
+    bindconfirm="bindconfirm"
+    bindkeyboardheightchange="bindkeyboardheightchange"
+    style="color: red;height: 50px;padding: 0 10px;margin-top: 30px;border: 1px dashed #444444;" 
+  />
+
+  <view>
+    <text>监听键盘高度变化事件</text>
+    <button type="primary" bindtap="onKeyboardHeightChange">onKeyboardHeightChange</button>
+  </view>
+
+  <view>
+    <text>取消监听键盘高度变化事件</text>
+    <button type="primary" bindtap="offKeyboardHeightChange">offKeyboardHeightChange</button>
+  </view>
+
+  <view>
+    <text>收起键盘</text>
+    <button type="primary" bindtap="hideKeyboard">hideKeyboard</button>
+  </view>
+
+  <view>
+    <text>获取输入框的光标位置</text>
+    <button type="primary" bindtap="getSelectedTextRange">getSelectedTextRange</button>
+  </view>
+
+ </page-meta>
