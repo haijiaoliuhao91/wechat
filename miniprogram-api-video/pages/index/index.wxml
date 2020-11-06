@@ -1,0 +1,294 @@
+<!-- 
+  wx.saveVideoToPhotosAlbum(Object object)    保存视频到系统相册。支持mp4视频格式
+  Object.object参数
+  filePath      视频文件路径，可以是临时文件也可以是永久文件路径(本地路径)
+  success       接口调用成功的回调函数
+  fail          接口调用失败的回调函数
+  complete      接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------
+
+  wx.openVideoEditor(Object object)   打开视频编辑器
+  Object.object参数
+  filePath      视频源的路径，只支持本地路径
+  success       接口调用成功的回调函数
+  fail          接口调用失败的回调函数
+  complete      接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  duration      剪辑后生成的视频文件的时长，单位毫秒
+  size          剪辑后生成的视频文件大小，单位字节数(byte)
+  tempFilePath  编辑后生成的视频文件的临时路径
+  tempThumbPath 编辑后生成的缩略图文件的临时路径
+
+  -------------------------------------------------------------------------------------------------------
+
+  wx.getVideoInfo(Object object) 获取视频的详细信息
+  Object.object参数
+  src           视频文件路径，可以是临时文件路径也可以是永久文件路径
+  success       接口调用成功的回调函数
+  fail          接口调用失败的回调函数
+  complete      接口调用完后的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  Object.res
+  orientation   画面方向
+  type          视频格式
+  duration      视频长度
+  size          视频大小，单位KB
+  height        视频高度，单位px
+  width         视频宽度，单位px
+  fps           视频帧率
+  bitrate       视频码率，单位kbps
+
+  -----------------------------------------------------------------------------------------------------
+
+  VideoContext  wx.createVideoContext(string id, Object this) 创建video上下文VideoContext对象
+  参数
+  string id   video组件的id
+  Object this 在自定义组件下，当前组件实例的this，以操作组件内video组件
+
+  ----------------------------------------------------------------------------------------------------
+
+  wx.compressVideo(Object object) 压缩视频接口。开发者可指定压缩质量 quality 进行压缩。当需要更精细的控制时，可指定 bitrate、fps 和 resolution，当quality传入时，这三个参数将被忽略。原视频的相关信息可通过getVideoInfo获取
+  Object.object参数
+  src           视频文件路径，可以是临时文件路径也可以是永久文件路径
+  quality       压缩质量
+  bitrate       码率，单位kbps
+  fps           帧率
+  resolution    相对于原视频的分辨率比例，取值范围[0, 1]
+  success       接口调用成功的回调函数
+  fail          接口调用失败的回调函数
+  complete      接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.quality的合法值
+  low           低
+  medium        中
+  high          高
+
+  object.success回调函数
+  tempFilePath  压缩后的临时文件地址
+  size          压缩后的大小，单位KB
+
+  ------------------------------------------------------------------------------------------------------------
+ 
+  wx.chooseVideo(Object object) 从手机相册中选取视频或者拍摄视频
+  Object.object参数
+  sourceTyes    视频选择的来源
+  compressed    是否压缩所选择的视频文件
+  maxDuration   拍摄视频最长拍摄时间，单位秒
+  camera        默认拉起的是前置或者后置摄像头
+  success       接口调用成功的回调函数
+  fail          接口调用失败的回调函数
+  complete      接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.sourceType的合法值
+  album         从相册选择视频
+  camera        使用相机拍摄视频
+
+  object.camera的合法值
+  back          默认拉起后置摄像头
+  front         默认拉起前置摄像头
+
+  object.success回调函数
+  Object res
+  tempFilePath  选定视频的临时文件路径(本地路径)
+  duration      选定视频的时间长度
+  size          选定视频的数据量大小
+  height        返回选定视频的高度
+  width         返回选定视频的宽度
+
+  -----------------------------------------------------------------------------------------------------
+
+  wx.chooseMedia(Object object) 拍摄或从手机相册中选择图片或视频
+  Object.object参数
+  count         最多可以选择的文件个数
+  mediaType     文件类型
+  sourceType    图片和视频选择的来源
+  maxDuration   拍摄视频最长拍摄时间，单位秒。时间范围为3s至30s之间
+  sizeType      仅对mediaType为image时有效，是否压缩所选文件
+  camera        仅在sourceType为camera时生效，使用前置或后置摄像头
+  success       接口调用成功的回调函数
+  fail          接口调用失败的回调函数
+  complete      接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.mediaType的合法值
+  image         只能拍摄图片或从相册选择图片
+  video         只能拍摄视频或从相册中选择视频
+
+  object.sourceType的合法值
+  album         从相册选择
+  camera        使用相机拍摄
+
+  object.camera的合法值
+  back          使用后置摄像头
+  front         使用前置摄像头
+
+  object.success回调函数
+  Object res
+  tempFiles     本地临时文件列表
+  type          文件类型，有效值为image、video
+
+  res.tempFiles的结构
+  tempFilePath  本地临时文件路径(本地路径)
+  size          本地临时文件大小，单位B
+  duration      视频的时间长度
+  height        视频的高度
+  width         视频的宽度
+  thumbTempFilePath 视频缩略图临时文件路径
+
+  ------------------------------------------------------------------------------------------------------------------
+
+  VideoContext实例，可以通过wx.createVideoContext获取。VideoContext通过 id 跟一个 video 组件绑定，操作对应的 video 组件
+  方法
+  Video.exitFullScreen()                         退出全屏
+
+  Video.exitPictureInPicture(Object object)      退出小窗，该方法可在任意页面调用
+  success   接口调用成功的回调函数
+  fail      接口调用失败的回调函数
+  complete  接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  VideoContext.hideStatusBar()                   隐藏状态栏，仅在iOS全屏下有效
+  
+  VideoContext.showStatusBar()                   显示状态栏，仅在iOS全屏下有效
+
+  VideoContext.pause()                           暂停
+
+  VideoContext.play()                            播放视频
+
+  VideoContext.playbackRate(number rate)         设置倍速播放
+
+  VideoContext.requestFullScreen(Object object)  进入全屏。若有自定义内容需在全屏时展示，需将内容节点放置到 video 节点内
+  Object.object参数
+  direction                                      设置全屏时视频的方向，不指定则根据宽高比自动判断
+
+  object.direction的合法值
+  0                                              正常竖向
+  90                                             屏幕逆时针旋转90度
+  -90                                            屏幕顺时针旋转90度
+
+  VideoContext.seek(number position)             跳转到指定位置，单位s
+
+  VideoContext.sendDanmu(Object data)            发送弹幕
+  Object data 弹幕内容
+  text                                           弹幕文字
+  color                                          弹幕颜色
+
+  VideoContext.stop()                            停止视频
+  
+-->
+
+ <page-meta
+  background-color-top="#00ff00"
+  background-color-bottom="#0000ff"
+  root-background-color="#ffffff"
+ >
+  <navigation-bar
+    title="video"
+    front-color="#ffffff"
+    background-color="#fe4b52"
+  />
+
+  <view>
+    <text>保存视频到系统相册。支持mp4视频格式</text>
+    <button type="primary" bindtap="saveVideoToPhotosAlbum">saveVideoToPhotosAlbum</button>
+  </view>
+
+  <view>
+    <text>打开视频编辑器</text>
+    <button type="primary" bindtap="openVideoEditor">openVideoEditor</button>
+  </view>
+
+  <view>
+    <text>获取视频的详细信息</text>
+    <button type="primary" bindtap="getVideoInfo">getVideoInfo</button>
+  </view>
+  
+  <view>
+    <text>压缩视频</text>
+    <button type="primary" bindtap="compressVideo">compressVideo</button>
+  </view>
+
+  <view>
+    <text>从相册选择视频或者使用相机拍摄视频</text>
+    <button type="primary" bindtap="chooseVideo">chooseVideo</button>
+    <video 
+      id="myvideo"
+      wx:if="{{src}}" 
+      src="{{src}}" 
+      title="90年代河南农村"
+      controls
+      autoplay
+      loop
+      muted
+      show-mute-btn
+      enable-auto-rotation
+      show-screen-lock-button
+      enable-play-gesture
+      object-fit="cover"
+      vslide-gesture
+      vslide-gesture-in-fullscreen
+      style="width: 100%;height: 200px;"
+    />
+  </view>
+
+  <view>
+    <text>从手机相册中选择图片、视频或者使用相机拍摄图片、视频</text>
+    <button type="primary" bindtap="chooseMedia">chooseMedia</button>
+  </view>
+
+  <view>
+    <text>进入全屏</text>
+    <button type="primary" bindtap="requestFullScreen">requestFullScreen</button>
+  </view>
+
+  <view>
+    <text>退出全屏</text>
+    <button type="primary" bindtap="exitFullScreen">exitFullScreen</button>
+  </view>
+
+  <view>
+    <text>暂停播放</text>
+    <button type="primary" bindtap="pause">pause</button>
+  </view>
+
+  <view>
+    <text>播放视频</text>
+    <button type="primary" bindtap="play">play</button>
+  </view>
+
+  <view>
+    <text>倍速播放</text>
+    <button type="primary" bindtap="playbackRate">playbackRate</button>
+  </view>
+
+  <view>
+    <text>跳转到指定位置</text>
+    <button type="primary" bindtap="seek">seek</button>
+  </view>
+
+  <view>
+    <text>发送弹幕</text>
+    <button type="primary" bindtap="sendDanmu">sendDanmu</button>
+  </view>
+
+  <view>
+    <text>停止播放</text>
+    <button type="primary" bindtap="stop">stop</button>
+  </view>
+
+  <view>
+    <text>展示状态栏，仅在iOS全屏下有效</text>
+    <button type="primary" bindtap="showStatusBar">showStatusBar</button>
+  </view>
+
+  <view style="z-index: 10;">
+    <text>隐藏状态栏，仅在iOS全屏下有效</text>
+    <button type="primary" bindtap="hideStatusBar">hideStatusBar</button>
+  </view>
+
+  <view>
+    <text>退出小窗。该方法可在任意界面调用</text>
+    <button type="primary" bindtap="exitPictureInPicture">exitPictureInPicture</button>
+  </view>
+ </page-meta>
