@@ -1,0 +1,79 @@
+<!-- 
+  wx.getSystemInfo(Object object)       获取系统信息
+  Object object参数
+  success                               接口调用成功的回调函数
+  fail                                  接口调用失败的回调函数
+  complete                              接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  brand                                 设备品牌
+  model                                 设备型号
+  pixelRatio                            设备像素比
+  screenWidth                           屏幕宽度，单位px
+  screenHeight                          屏幕高度，单位px
+  windowWidth                           可使用窗口宽度，单位px
+  windowHeight                          可使用窗口高度，单位px
+  statusBarHeight                       状态栏的高度，单位px
+  language                              微信设置的语言
+  version                               微信版本号
+  system                                操作系统及版本
+  platform                              客户端平台
+  fontSizeSetting                       用户字体大小(单位px)。以微信客户端「我-设置-通用-字体大小」中的值为准
+  SDKVersion                            客户端基础库版本
+  benchmarkLevel                        设备性能等级(仅Andorid)。取值为：-2或0(该设备无法运行小游戏)，-1(性能未知)，>=1(设备性能值，该值越高，设备性能越好，目前最高不到50)
+  albumAuthorized                       允许微信使用相册的开关(仅iOS有效)
+  cameraAuthorized                      允许微信使用相册的开关
+  locationAuthorized                    允许微信使用定位的开关
+  microphoneAuthorized                  允许微信使用麦克风的开关
+  notificationAuthorized                允许微信通知的开关
+  notificationAlertAuthorized           允许微信通知带有弹窗的开关(仅iOS有效)
+  notificationBadgeAuthorized           允许微信通知带有标记的开关(仅iOS有效)
+  notificationSoundAuthorized           允许微信通知带有声音的开关(仅iOS有效)
+  bluetoothEnabled                      蓝牙的系统开关
+  locationEnabled                       地理位置的系统开关
+  wifiEnabled                           WI-FI的系统开关
+  safeArea                              在竖屏正方向下的安全区域
+  theme                                 系统当前主题，取值为 light 或 dark，全局配置"darkmode":true时才能获取，否则为undefined(不支持小游戏)
+  
+  res.safaArea的结构
+  left                                  安全区域左上角横坐标
+  right                                 安全区域右下角横坐标
+  top                                   安全区域左上角纵坐标
+  bottom                                安全区域右下角纵坐标
+  width                                 安全区域的宽度，单位逻辑像素
+  height                                安全区域的高度，单位逻辑像素
+
+  res.theme的合法值
+  'dark'                                深色主题
+  'light'                               浅色主题
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.getSystemInfoSync()                同步获取系统信息
+
+  -------------------------------------------------------------------------------------------------------------
+ -->
+
+<page-meta
+ background-color-top="#ff00ff"
+ background-color-bottom="#00ffff"
+ root-background-color="#ffff00"
+ root-font-size="18px"
+>
+ <navigation-bar 
+  title="systemInfo"
+  front-color="#ffffff"
+  background-color="#fe4b52"
+ />
+
+ <view>
+  <text>异步获取系统信息</text>
+  <button type="primary" bindtap="getSystemInfo">getSystemInfo</button>
+ </view>
+
+ <view>
+  <text>同步获取系统信息</text>
+  <button type="primary" bindtap="getSystemInfoSync">getSystemInfoSync</button>
+ </view>
+
+</page-meta>
