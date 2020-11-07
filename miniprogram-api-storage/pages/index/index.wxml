@@ -1,0 +1,182 @@
+<!-- 
+  wx.setStorage(Object object) 
+  将数据存储在本地缓存指定的key中。会覆盖掉原来key对应的内容。除非用户主动删除或因存储空间原因被系统清理，否则数据都一直可用。
+  单个key允许存储的最大数据长度为1MB，所有数据存储上限为10MB。
+
+  Object.object参数
+  key                   本地缓存中指定的key
+  data                  需要存储的内容。只支持原生类型、Date及能够通过JSON.stringify序列化的对象
+  success               接口调用成功的回调函数
+  fail                  接口调用失败的回调函数
+  complete              接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.setStorageSync(string key, any data)     wx.setStorage的同步版本
+  参数
+  string key            本地缓存中指定的key
+  any data              需要存储的内容。只支持原生类型、Date、及能够通过 JSON.stringify 序列化的对象
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.removeStorage(Object object)   从本地缓存中移除指定key
+  Object.object参数
+  key                   本地缓存中指定的key
+  success               接口调用成功的回调函数
+  fail                  接口调用失败的回调函数
+  complete              接口调用完成的回调函数
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.removeStorageSync(string key)  wx.removeStorage的同步版本
+  string key            本地缓存中指定的key
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.getStorage(Object object)      从本地缓存中异步获取指定key的内容
+  Object.object参数
+  key                   本地缓存中指定的key
+  success               接口调用成功的回调函数
+  fail                  接口调用失败的回调函数
+  complete              接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------------
+
+  any wx.getStorageSync(string key)   wx.getStorage的同步版本
+  参数
+  string key            本地缓存中指定的key
+  any data              key对应的内容
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.getStorageInfo(Object object)    异步获取当前storage的相关信息
+  Object.object参数
+  success               接口调用成功的回调函数
+  fail                  接口调用失败的回调函数
+  complete              接口调用完成
+
+  object.success回调函数
+  keys                  当前 storage 中所有的key
+  currentSize           当前占用的空间大小，单位KB
+  limitSize             限制的空间大小，单位KB
+
+  -------------------------------------------------------------------------------------------------------------
+
+  Object wx.getStorageInfoSync()  wx.getStorageInfo的同步版本
+  Object object
+  keys                当前 storage 中所有的key
+  currentSize         当前占用的空间大小，单位KB
+  limitSize           限制的空间大小，单位KB
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.clearStorage(Object object)  清理本地缓存
+  Object object
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.clearStorageSync() 清理本地缓存
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.setBackgroundFetchToken(Object object) 设置自定义登录态，在周期性拉取数据时带上，便于第三方服务器验证请求合法性
+  Object object参数
+  token               自定义的登录态
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.onBackgroundFetchData(function callback) 监听到backgroundFetch数据时的回调
+  function callback的回调函数
+  fetchType           缓存数据类别(periodic)
+  fetchData           缓存数据
+  timeStamp           客户端拿到缓存数据的事件戳
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.getBackgroundFetchToken(Object object)   获取设置过的自定义登录态。若无，则返回nil
+  Object object
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------------
+
+  wx.getBackgroundFetchData(Object object)    拉取backgroundFetch客户端缓存数据
+  Object object参数
+  fetchType           periodic
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------------
+  
+ -->
+
+ <page-meta
+  background-color-top="#ff00ff"
+  background-color-bottom="#ffff00"
+  root-background-color="#00ffff"
+ >
+  <navigation-bar 
+    title="storage"
+    front-color="#ffffff"
+    background-color="#fe4b52"
+  />
+
+  <view>
+    <text>将数据异步存储在本地缓存指定的key中</text>
+    <button type="primary" bindtap="setStorage">setStorage</button>
+  </view>
+
+  <view>
+    <text>从本地缓存中异步获取指定key对应的内容</text>
+    <button type="primary" bindtap="getStorage">getStorage</button>
+  </view>
+
+  <view>
+    <text>将数据同步存储在本地缓存指定的key中</text>
+    <button type="primary" bindtap="setStorageSync">setStorageSync</button>
+  </view>
+
+  <view>
+    <text>从本地缓存中同步获取指定key对应的内容</text>
+    <button type="primary" bindtap="getStorageSync">getStorageSync</button>
+  </view>
+
+  <view>
+    <text>从本地缓存中异步移除指定key</text>
+    <button type="primary" bindtap="removeStorage">removeStorage</button>
+  </view>
+
+  <view>
+    <text>从本地缓存中同步移除指定key</text>
+    <button type="primary" bindtap="removeStorageSync">removeStorageSync</button>
+  </view>
+
+  <view>
+    <text>异步获取当前storage的相关信息</text>
+    <button type="primary" bindtap="getStorageInfo">getStorageInfo</button>
+  </view>
+
+  <view>
+    <text>同步获取当前storage的相关信息</text>
+    <button type="primary" bindtap="getStorageInfoSync">getStorageInfoSync</button>
+  </view>
+
+  <view>
+    <text>异步清理本地缓存</text>
+    <button type="primary" bindtap="clearStorage">clearStorage</button>
+  </view>
+
+  <view>
+    <text>同步清理本地缓存</text>
+    <button type="primary" bindtap="clearStorageSync">clearStorageSync</button>
+  </view>
+
+ </page-meta>
