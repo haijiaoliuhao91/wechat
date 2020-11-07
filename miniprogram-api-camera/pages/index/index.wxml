@@ -1,0 +1,178 @@
+<!-- 
+  CameraContext wx.createCameraContext()  创建 camera 上下文 CameraContext 对象
+
+  CameraContext 实例，可通过 wx.createCameraContext 获取
+  CameraContext 与页面内唯一的 camera 组件绑定，操作对应的 camera 组件
+
+  -----------------------------------------------------------------------------------------------------------
+
+  方法
+  CameraFrameListener CameraContext.onCameraFrame(onCameraFrameCallback callback) 获取 Camera 实时帧数据
+  function callback回调函数
+  Object res参数
+  width       图像数据矩形的宽度
+  height      图像数据矩形的高度
+  data        图像像素点数据，一维数组，每四项表示一个像素点的rgba
+ 
+  ----------------------------------------------------------------------------------------------------------
+
+  CameraContext.setZoom(Object object) 设置缩放级别
+  Object.object参数
+  zoom        缩放级别，范围[1, maxZoom]。zoom可取小数，精确到小数后一位。maxZoom可在bindinitdone返回值中获取
+  success     接口调用成功的回调函数
+  fail        接口调用失败的回调函数
+  complete    接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  Object.res
+  zoom        实际设置的缩放级别。由于系统限制，某些机型可能无法设置成指定值，会改用最接近的可设置
+
+  -------------------------------------------------------------------------------------------------------
+
+  CameraContext.startRecord(Object object) 开始录像
+  Object.object
+  timeoutCallback     超过30s或页面 onHide 时会结束录像，触发该函数
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  -------------------------------------------------------------------------------------------------------
+
+  CameraContext.stopRecord(Object object)  结束录像
+  Object.object参数
+  compressed          启动视频压缩，压缩效果同 chooseVideo
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  tempThumbPath       封面图片文件的临时路径(本地路径)
+  tempVideoPath       视频的文件的临时路径(本地路径)
+
+  --------------------------------------------------------------------------------------------------------
+
+  CameraContext.takePhoto(Object object)  拍摄照片
+  Object.object参数
+  quality             成像质量
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数
+
+  object.quality的合法值
+  high                高质量
+  normal              普通质量
+  low                 低质量
+
+  object.success回调函数
+  Object res参数
+  tempImagePath       照片文件的临时路径(本地路径)，安卓是jpg图片格式，iOS是png
+
+  ---------------------------------------------------------------------------------------------------------
+
+  CameraFrameListener 使用该接口需同时在 camera 组件属性中指定 frame-size
+  CameraContext.onCameraFrame()  返回的监听器
+
+  CameraFrameListener.start(Object object) 开始监听帧数据
+  Object.object参数
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行) 
+
+  CameraFrameListener.stop(Object object) 停止监听帧数据
+  Object.object参数
+  success             接口调用成功的回调函数
+  fail                接口调用失败的回调函数
+  complete            接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+
+ -->
+
+ <page-meta
+  background-color-top="#00ff00"
+  background-color-bottom="#00ffff"
+ >
+  <navigation-bar
+    title="Camera"
+    front-color="#ffffff"
+    background-color="#fe4b52"
+  />
+
+  <camera 
+    mode="camera"
+    resolution="high"
+    device-position="front"
+    flash="auto"
+    frame-size="medium"
+    style="width: 100%;height: 300px;" 
+    bindstop="bindstop"
+    binderror="binderror"
+    bindinitdone="bindinitdone"
+  />
+
+  <view>
+    <text>创建 camera 上下文 CameraContext 对象</text>
+    <button type="primary" bindtap="createCameraContext">createCameraContext</button>
+  </view>
+
+  <view>
+    <text>设置缩放级别</text>
+    <button type="primary" bindtap="setZoom">setZoom</button>
+  </view>
+
+  <view>
+    <text>开始录像</text>
+    <button type="primary" bindtap="startRecord">startRecord</button>
+  </view>
+
+  <view>
+    <text>结束录像</text>
+    <button type="primary" bindtap="stopRecord">stopRecord</button>
+  </view>
+
+  <view>
+    <text>拍摄照片</text>
+    <button type="primary" bindtap="takePhoto">takePhoto</button>
+  </view>
+
+  <view>
+    <text>获取 Camera 实时帧数据</text>
+    <button type="primary" bindtap="onCameraFrame">onCameraFrame</button>
+  </view>
+
+  <view>
+    <text>开始监听帧数据</text>
+    <button type="primary" bindtap="start">start</button>
+  </view>
+
+  <view wx:if="{{src}}">
+    <text>预览图片</text>
+    <image src="{{src}}"  mode="widthFix" style="width: 100%;" bindtap="imageClick" />
+  </view>
+  
+  <view>
+    <text>停止监听帧数据</text>
+    <button type="primary" bindtap="stop">stop</button>
+  </view>
+
+  <view wx:if="{{video}}">
+    <text>预览视频</text>
+    <video 
+      src="{{video}}" 
+      poster="{{thumb}}" 
+      controls 
+      autoplay="{{false}}"
+      loop 
+      muted 
+      show-fullscreen-btn 
+      show-center-play-btn 
+      enable-play-gesture  
+      show-mute-btn
+      vslide-gesture
+      vslide-gesture-fullscreen
+      show-screen-lock-button
+      show-snapshot-button
+      object-fit="fill"
+      style="width: 100%;height: 300px;"
+    />
+  </view>
+ </page-meta>
