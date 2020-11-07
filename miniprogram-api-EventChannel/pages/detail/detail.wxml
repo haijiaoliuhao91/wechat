@@ -1,0 +1,12 @@
+<page-meta
+  background-color-top="#00ff00"
+  background-color-top="#ffff00"
+  root-background-color="#00ffff"
+>
+  <navigation-bar 
+    title="detail"
+    front-color="#ffffff"
+    background-color="#fe4b52"
+  />
+  <button type="primary" bindtap="send">send</button>
+</page-meta>
