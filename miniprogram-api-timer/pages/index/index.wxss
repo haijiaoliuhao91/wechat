@@ -1,0 +1,11 @@
+text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: brown;
+  padding: 15px;
+}
+
+button {
+  width: 100% !important;
+}
