@@ -1,0 +1,99 @@
+<!-- 
+  wx.updateShareMenu(Object object)         更新转发属性
+  Object object参数
+  withShareTicket                           是否使用带 shareTicket 的转发
+  isUpdatableMessage                        是否是动态消息
+  activityId                                动态消息的activityId。通过 updatableMessage.createActivityId 接口获取
+  toDoActivityId                            群待办消息的id，通过toDoActivityId可以把多个群待办消息聚合为同一个。通过updatableMessage.createActivityId接口获取
+  templateInfo                              动态消息的模板信息
+  isPrivateMessage                          是否是私密消息
+  success                                   接口调用成功的回调函数
+  fail                                      接口调用失败的回调函数
+  complete                                  接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.templateInfo的结构
+  parameterList                             参数列表
+
+  parameterList的结构
+  name                                      参数名
+  value                                     参数值
+
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  wx.showShareMenu(Object object)            显示当前页面的转发按钮
+  Object object参数
+  withShareTicket                            是否使用带 shareTicket 的转发
+  menus                                      本接口为Beta版本，暂只在 Android 平台支持。需要显示的转发按钮名称列表，默认['shareAppMessage']。按钮名称合法值包含'shareAppMessage'、'shareTimeline'两种
+  success                                    接口调用成功的回调函数
+  fail                                       接口调用失败的回调函数
+  complete                                   接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  注意事项
+  1、'shareAppMessage'表示"发送给朋友"按钮，'shareTimeline'表示"分享到朋友圈"按钮
+  2、显示"分享到朋友圈"按钮时必须同时显示"发送给朋友"按钮，显示"发送给朋友"按钮时则允许不显示"分享到朋友圈"按钮
+
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  wx.hideShareMenu(Object object)            隐藏当前页面的转发按钮
+  menus                                      本接口为Beta版本，暂只在 Andorid 平台支持。需要隐藏的转发按钮名称列表，默认['shareAppMessage', 'shareTimeline']。按钮名称合法值包含'shareAppMessage'、'shareTimeline'两种
+  success                                    接口调用成功的回调函数
+  fail                                       接口调用失败的回调函数
+  complete                                   接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  wx.getShareInfo(Object object)             获取转发信息
+  Object object参数
+  shareTicket           
+  timeout                                    超时时间，单位ms
+  success                                    接口调用成功的回调函数
+  fail                                       接口调用失败的回调函数
+  complete                                   接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  errMsg                                     错误信息
+  encryptedData                              包括敏感数据在内的完整转发信息的加密数据
+  iv                                         加密算法的初始向量
+  cloudID                                    敏感数据对应的云ID，开通云开发的小程序才会返回，可通过云调用直接获取开放数据
+
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  wx.authPrivateMessage(Object object)       验证私密消息
+  Object object参数
+  shareTicket                                shareTicket。可以从 wx.onShow 中获取
+  success                                    接口调用成功的回调函数
+  fail                                       接口调用失败的回调函数
+  complete                                   接口调用完成的回调函数(调用成功、调用失败都会执行)
+
+  object.success回调函数
+  errMsg                                     错误信息
+  valid                                      验证是否通过
+  encryptedData                              经过加密的activityId，解密后可得到原始的activityId。若解密后得到的activityId可以与开发者后台的活动id对应上则验证通过，否则表明valid字段不可靠(被篡改)
+  iv                                         加密算法的初始向量
+
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+ -->
+
+ <page-meta
+  background-color-top="#ff00ff"
+  background-color-bottom="#ffff00"
+  root-background-color="#00ff00"
+  root-font-size="12px"
+ >
+  <navigation-bar 
+    title="transmit"
+    front-color="#ffffff"
+    background-color="#fe4b52"
+  />
+
+  <view>
+    <text>显示当前页面的转发按钮</text>
+    <button type="primary" bindtap="showShareMenu">showShareMenu</button>
+  </view>
+
+  <view>
+    <text>隐藏当期页面的转发按钮</text>
+    <button type="primary" bindtap="hideShareMenu">hideShareMenu</button>
+  </view>
+
+ </page-meta>
